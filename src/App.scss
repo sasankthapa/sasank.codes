@@ -1,0 +1,21 @@
+@use
+*{
+    margin:0;
+    padding:0;
+}
+
+.App{
+    width: 100vw;
+    height:100vh;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+
+@media (min-aspect-ratio: 28/9){
+    body{
+        background-color: red;
+    }
+}
+
+

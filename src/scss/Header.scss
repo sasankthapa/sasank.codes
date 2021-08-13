@@ -1,0 +1,22 @@
+@import 'Load';
+
+@mixin hundreds {
+    width:100%;
+    height:100%;
+}
+
+.Header{
+    @include hundreds();
+    background-color: red;
+}
+
+.Logo{
+    @include hundreds();
+    img{
+        @include hundreds();
+    }
+}
+
+.Name{
+
+}

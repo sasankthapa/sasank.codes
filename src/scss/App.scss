@@ -1,0 +1,18 @@
+@use 'Load.scss';
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.App{
+    width: 100vw;
+    height:100vh;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    @media (min-width:550px){
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: repeat(6,1fr);
+    }
+}
