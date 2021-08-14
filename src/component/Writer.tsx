@@ -4,7 +4,7 @@ import '../scss/Writer.scss';
 interface WriterProps{
     values:Array<string>;
     changes:boolean;
-    timeout:number;
+    timeout?:number;
 }
 
 const Writer:React.FC<WriterProps>=({values,changes,timeout})=>{
@@ -19,7 +19,7 @@ const Writer:React.FC<WriterProps>=({values,changes,timeout})=>{
 
     useEffect(()=>{
         if(changes){
-            setTimeout((values)=>{
+            setTimeout(()=>{
                 setCurrent(values[currIndex]);
                 setCurrIndex(currIndex+1)
             },timeout);
