@@ -1,22 +1,22 @@
-@import 'Load';
+@import 'Function';
+@import 'Writer';
 
 @mixin hundreds {
     width:100%;
     height:100%;
 }
 
-.Header{
-    @include hundreds();
-    background-color: red;
-}
-
 .Logo{
-    @include hundreds();
+    @include hundreds;
+    @include getLogoGridLocation();
     img{
-        @include hundreds();
+        @include hundreds;
     }
 }
 
 .Name{
-
+    justify-self: start;
+    align-self: end;
+    @include getNameGridLocation();
+    overflow-x: auto;
 }

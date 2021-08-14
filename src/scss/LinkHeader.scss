@@ -1,0 +1,23 @@
+.maincontainer{
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    margin: 1em 1em;
+}
+@keyframes slideIn{
+    0%{
+        transform: translateY(100%);
+        background-color: lightblue;
+    }
+    100%{
+        transform: translateY(0%);
+        background-color: none;
+    }
+}
+
+.maincontainer *{
+    width: 1em;
+    div{
+        animation: slideIn 1s ease-in;
+    }
+}

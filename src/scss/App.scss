@@ -1,4 +1,4 @@
-@use 'Load.scss';
+@import 'include-media';
 
 *{
     margin:0;
@@ -9,10 +9,21 @@
     width: 100vw;
     height:100vh;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(5,1fr);
-    @media (min-width:550px){
-        grid-template-columns: repeat(12,1fr);
-        grid-template-rows: repeat(6,1fr);
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+
+.LinksApp{
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-aspect-ratio: 28/9){
+    body{
+        background-color: red;
     }
 }
+
+

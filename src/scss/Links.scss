@@ -1,0 +1,56 @@
+@import 'include-media';
+
+.LinksContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+    & .grayed{
+        background-color: gray; 
+    }
+    a{
+        color:black;
+        text-decoration: none;
+        width:100%;
+    }
+}
+
+.LinksContainer *{
+    margin-top: 0.3em;
+}
+
+.LinkItem{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    height: 3em;
+    width: 100%;
+}
+
+.GitHub{
+    background-color: black;
+    color:white;
+}
+
+.Disabled{
+    font-size:1em;
+    color:#808080;
+    cursor: not-allowed;
+    background-color: #525252;
+}
+
+.Linkedin{
+    background-color: #0072b1;
+    img{
+        background-color: white;
+    }
+    color:white;
+}
+
+@include media(">600"){
+    .LinksContainer{
+        justify-content: center;
+        align-items: start;
+        padding: 0 10em;
+    }
+}
