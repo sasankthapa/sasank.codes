@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Character from './Character';
 import '../scss/Writer.scss';
 
 interface WriterProps{
@@ -13,7 +14,7 @@ const Writer:React.FC<WriterProps>=({values,changes,timeout})=>{
 
     const currentCharacters:Array<string>=[];
 
-    for(var i=0;i<current.length;i++){
+    for(var i=0;i < current.length;i++){
         currentCharacters.push(current[i]);
     }
 
@@ -27,8 +28,8 @@ const Writer:React.FC<WriterProps>=({values,changes,timeout})=>{
     },[])
 
     return <div className="MainWriter">
-        {currentCharacters.map((curr) => {
-            return <span>{curr}</span>;
+        {currentCharacters.map( (curr) => {
+            return <Character character={curr} />;
         })}
     </div>
 }

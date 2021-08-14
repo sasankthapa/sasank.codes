@@ -35,7 +35,7 @@ const Links:React.FC<{}>=()=>{
             image:LinkedinImage
         },
         {
-            name:'sasank.codes/app',
+            name:'sasank.codes/app (Coming Soon)',
             href:'/',
             extraClasses:'Disabled ',
         }

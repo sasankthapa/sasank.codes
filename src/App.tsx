@@ -6,7 +6,7 @@ import LinksContainer from './component/LinksContainer'
  
 function App() {
   return (
-    <div className="LinksApp">
+    <div className="LinkApp">
         <LinkHeader/>
         <LinksContainer />
     </div>
