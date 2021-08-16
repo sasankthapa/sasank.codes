@@ -1,16 +1,20 @@
 import React from 'react'
 import '../scss/Header.scss'
-import image from '../assets/mainImage.png'
+import image from '../assets/profile.jpg'
 import Writer from './Writer'
 
 const HeaderComponent:React.FC<{}>= () => {
    return <>
         <div className="Logo">
-            <img src={image} alt="main"/>
+            <div className="imgcontainer">
+                <img src={image} alt="main"/>
+            </div>
         </div>
-        <div className="Name">
-            <Writer values={['Sasank Thapa']} changes={false}/>
+        <div className="nametitle">
+            <h1>Sasank Thapa</h1>
         </div>
+        {//<Writer extraClass="Name" values={['Sasank Thapa']} changes={false}/>
+        }
     </>
 }
 

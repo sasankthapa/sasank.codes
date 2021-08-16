@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import 'include-media';
 
 *{
@@ -6,11 +7,19 @@
 }
 
 .App{
+    font-family: 'Noto Sans JP';
     width: 100vw;
     height:100vh;
     display: grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-template-rows: repeat(6,1fr);
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    @include media(">450px"){
+        grid-template-columns: repeat(5,1fr);
+    }
+    @include media(">800px"){
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: repeat(6,1fr);
+    }
 }
 
 .LinksApp{
@@ -25,5 +34,3 @@
         background-color: red;
     }
 }
-
-

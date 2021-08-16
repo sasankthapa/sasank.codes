@@ -5,31 +5,33 @@ import '../scss/Writer.scss';
 interface WriterProps{
     values:Array<string>;
     changes:boolean;
+    extraClass?:String;
     timeout?:number;
 }
 
-const Writer:React.FC<WriterProps>=({values,changes,timeout})=>{
+const Writer:React.FC<WriterProps>=({values,changes,extraClass,timeout})=>{
     const [currIndex,setCurrIndex]=useState<number>(0);
-    const [current,setCurrent]=useState<string>(values[currIndex]);
 
     const currentCharacters:Array<string>=[];
+
+    const current=values[currIndex];
 
     for(var i=0;i < current.length;i++){
         currentCharacters.push(current[i]);
     }
 
     useEffect(()=>{
-        if(changes){
-            setTimeout(()=>{
-                setCurrent(values[currIndex]);
-                setCurrIndex(currIndex+1)
-            },timeout);
-        }
-    },[])
+        if(!changes)
+            return
+        setTimeout(()=>{
+            if(currIndex <values.length){
+                setCurrIndex((prev)=>(prev+1)%values.length);
+        }},timeout);
+    },[currIndex])
 
-    return <div className="MainWriter">
-        {currentCharacters.map( (curr) => {
-            return <Character character={curr} />;
+    return <div className={extraClass+" MainWriter"}>
+        {currentCharacters.map((curr,index) => {
+            return <Character key={currIndex+curr+index} character={curr===' '?'':curr} />;
         })}
     </div>
 }

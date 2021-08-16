@@ -1,14 +1,13 @@
 import React from 'react';
 import './scss/App.scss';
 import Header from './component/HeaderComponent'
-import LinkHeader from './component/LinkHeader'
-import LinksContainer from './component/LinksContainer'
+import Body from './component/BodyComponent'
  
 function App() {
   return (
-    <div className="LinkApp">
-        <LinkHeader/>
-        <LinksContainer />
+    <div className="App">
+        <Header/>
+        <Body/>
     </div>
   );
 }

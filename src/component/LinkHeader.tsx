@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../scss/LinkHeader.scss'
 import Character from './Character';
 
-const LinkHeader:React.FC<{}> = () => {
+const NameHeader: React.FC<{}> = () => {
     const [showH,setShow] = useState(false);
     const [currentShow,setCurrentShow]=useState(-1);
 
@@ -46,4 +46,4 @@ const LinkHeader:React.FC<{}> = () => {
     </div>
 }
 
-export default LinkHeader
+export default NameHeader

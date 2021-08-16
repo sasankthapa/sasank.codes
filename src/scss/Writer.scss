@@ -1,25 +1,85 @@
 @import 'include-media';
+@import 'mediavarload';
+@import 'Function';
 
-@mixin step_anim {
-    
+@mixin hundreds {
+    width:100%;
+    height:100%;
+}
+
+@mixin font_config {
+    @include media(">800"){
+        .Character{
+            font-size:5.3em;
+            min-width: 5vw;
+        }
+    }
 }
 
 @keyframes slideIn{
     0%{
-        transform: translateY(100%);
-        background-color: lightblue;
+        transform: translateY(-75%);
+        visibility: visible;
     }
     100%{
         transform: translateY(0%);
-        background-color: none;
+        visibility: visible;
     }
+}
+@keyframes visibility{
+}
+
+@mixin NameHeader {
+    overflow: hidden;
 }
 
 .MainWriter{
-    overflow:hidden;
+    $delay:0;
     display: flex;
-    align-items: flex-start;
-    div{
-        animation: slideIn 1s ease-in;
+    align-items: center;
+    @include font_config();
+    overflow: visible;
+    @include hundreds();
+
+    &:first-of-type{
+        @include NameHeader();
+    }
+
+
+    @for $index from 1 to 100 {
+        .Character:nth-child(#{$index}){
+            animation-delay:($delay+($index * 0.1s));
+        }
     }
 }
+
+
+.Character{
+    visibility: hidden;
+    width: 3.5vw;
+    font-size:2.2em;
+    text-align: center;
+    animation: slideIn 0.1s linear;
+    animation-fill-mode: forwards;
+
+    @include media(">450px"){
+        width: 3.2vw;
+        font-size:1em;
+    }
+
+    @include media(">800px"){
+        font-size:3.3em;
+        width: 3vw;
+    }
+    
+    @include media(">1000px"){
+        font-size:5em;
+        width: 3.5vw;
+    }
+}
+
+.show{
+    visibility:visible;
+    transform: translateY(0%);
+}
+

@@ -1,22 +1,69 @@
 @import 'Function';
-@import 'Writer';
 
 @mixin hundreds {
     width:100%;
     height:100%;
 }
 
+@mixin flexCenter {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
 .Logo{
     @include hundreds;
     @include getLogoGridLocation();
+    @include flexCenter();
+    overflow: hidden;
+    .imgcontainer{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 150px;
+        height:150px;
+    }
     img{
-        @include hundreds;
+        @include hundreds();
+        transform: scale(2);
     }
 }
 
 .Name{
+    $delay:2s;
     justify-self: start;
     align-self: end;
-    @include getNameGridLocation();
+    @include getNameOptions();
     overflow-x: auto;
+    color:rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.nametitle{
+    @include getNameOptions();
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        letter-spacing: -2px;
+    }
+    font-size: 1em;
+    @include media(">450px"){
+        font-size:1.3em ;
+        h1{
+            letter-spacing: -0.15em;
+        }
+    }
+    @include media(">600px"){
+        font-size:1.7em ;
+        h1{
+            letter-spacing: -0.13em;
+        }
+    }
+    @include media(">800px"){
+        font-size:3.3em;
+        h1{
+            letter-spacing: -0.13em;
+        }
+    }
 }

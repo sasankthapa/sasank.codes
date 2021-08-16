@@ -9,9 +9,9 @@ const Character:React.FC<CharacterProps>=({character,show})=>{
     const classNameList=['Character']
     if(show) 
         classNameList.push('show')
-    return <div className={classNameList.join(' ')}>
+    return <span className={classNameList.join(' ')}>
         {character}
-    </div>
+    </span>
 }
 
 export default Character;
