@@ -19,12 +19,21 @@
     .imgcontainer{
         border-radius: 50%;
         overflow: hidden;
-        width: 150px;
+        width:150px;
         height:150px;
-    }
-    img{
-        @include hundreds();
-        transform: scale(2);
+        img{
+            width: 100%;
+        }
+        @include media("<800px"){
+            width:100px;
+            height:100px;
+        }
+        @include media("<500px"){
+            width:75px;
+            height:75px;
+        }
+        border: 1px solid navajowhite;
+        box-sizing: border-box;
     }
 }
 
@@ -63,7 +72,6 @@
     @include media(">800px"){
         font-size:3.3em;
         h1{
-            letter-spacing: -0.13em;
-        }
+            letter-spacing: -0.13em; }
     }
 }
