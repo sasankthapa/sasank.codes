@@ -7,12 +7,10 @@
     height:100%;
 }
 
-@mixin font_config {
-    @include media(">800"){
-        .Character{
-            font-size:5.3em;
-            min-width: 5vw;
-        }
+@mixin display {
+    @include media("<800px"){
+        justify-content: center;
+        align-items: flex-end;
     }
 }
 
@@ -26,38 +24,67 @@
         visibility: visible;
     }
 }
-@keyframes visibility{
-}
 
 @mixin NameHeader {
     overflow: hidden;
 }
 
+@keyframes growanim{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width:100%;
+    }
+}
+
 .MainWriter{
-    $delay:0;
     display: flex;
     align-items: center;
-    @include font_config();
+    @include display();
     overflow: visible;
-    @include hundreds();
-
+    width:100%;
+    position: relative;
     &:first-of-type{
         @include NameHeader();
     }
 
+    &:after{
+        content:'';
+        position: absolute;
+        height:5px;
+        top:100%;
+        left:0%;
+        width:0%;
+        animation: growanim 3s linear;
+        background: lightslategray;
+        animation-fill-mode: forwards;
+        transition: background 1.8s ease-in-out;
+    }
 
-    @for $index from 1 to 100 {
+    @for $index from 1 to 30 {
         .Character:nth-child(#{$index}){
-            animation-delay:($delay+($index * 0.1s));
+            animation-delay:(0.1s+($index * 0.1s));
         }
     }
 }
 
+.blue{
+    &:after{
+        background: lightcoral;
+    }
+}
+
+.gray{
+    &:after{
+        background: lightsteelblue;
+    }
+}
 
 .Character{
     visibility: hidden;
-    width: 3.5vw;
-    font-size:2.2em;
+    width: 3.2vw;
+    font-size:1em;
     text-align: center;
     animation: slideIn 0.1s linear;
     animation-fill-mode: forwards;
@@ -67,14 +94,24 @@
         font-size:1em;
     }
 
+    @include media(">600px"){
+        width: 4.3vw;
+        font-size:2.5em;
+    }
+
     @include media(">800px"){
         font-size:3.3em;
-        width: 3vw;
+        width: 4.5vw;
     }
     
     @include media(">1000px"){
-        font-size:5em;
-        width: 3.5vw;
+        font-size:3.9em;
+        width: 5vw;
+    }
+
+    @include media(">1400px"){
+        font-size:5em ;
+        width:6vw;
     }
 }
 

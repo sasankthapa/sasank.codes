@@ -3,14 +3,12 @@ import Character from './Character';
 import '../scss/Writer.scss';
 
 interface WriterProps{
+    currIndex:number;
     values:Array<string>;
-    changes:boolean;
     extraClass?:String;
-    timeout?:number;
 }
 
-const Writer:React.FC<WriterProps>=({values,changes,extraClass,timeout})=>{
-    const [currIndex,setCurrIndex]=useState<number>(0);
+const Writer:React.FC<WriterProps>=({currIndex,values,extraClass})=>{
 
     const currentCharacters:Array<string>=[];
 
@@ -20,18 +18,9 @@ const Writer:React.FC<WriterProps>=({values,changes,extraClass,timeout})=>{
         currentCharacters.push(current[i]);
     }
 
-    useEffect(()=>{
-        if(!changes)
-            return
-        setTimeout(()=>{
-            if(currIndex <values.length){
-                setCurrIndex((prev)=>(prev+1)%values.length);
-        }},timeout);
-    },[currIndex])
-
-    return <div className={extraClass+" MainWriter"}>
+    return <div className={"MainWriter "+extraClass}>
         {currentCharacters.map((curr,index) => {
-            return <Character key={currIndex+curr+index} character={curr===' '?'':curr} />;
+            return <Character key={currIndex+curr+index} character={curr} />;
         })}
     </div>
 }
