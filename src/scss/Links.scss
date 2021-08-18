@@ -28,6 +28,9 @@
             color:#100298;
         }
     }
+    @include media("<600px"){
+        font-size: 0.8em;
+    }
 }
 
 .Disabled{

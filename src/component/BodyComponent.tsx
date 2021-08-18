@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Writer from './Writer';
+import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
 
 const BodyComponent:React.FC<{}> = () => {
@@ -17,11 +18,12 @@ const BodyComponent:React.FC<{}> = () => {
     console.log('ntoaheu')
 
     return <>
-        <Writer currIndex={currIndex} extraClass={"desc"+colorClasses[currIndex]} values={
+        <Writer currIndex={currIndex} extraClass={"desc"+colorClasses[currIndex]+"BG"} values={
             ['Aspiring ML Engineer',
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
+        <ProjectContainer extraclass={colorClasses[currIndex]}/>
     </>
 }
 

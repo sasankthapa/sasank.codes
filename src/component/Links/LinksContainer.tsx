@@ -30,7 +30,9 @@ const LinksContainer:React.FC<{}> = () =>{
 
     return <div className="LinksContainer">
         {linkItems.map((linkItem)=>{
-            return <Link name={linkItem.name}
+            return <Link 
+                    key={linkItem.name}
+                    name={linkItem.name}
                     href={linkItem.href}
                     extraClasses={linkItem.extraClasses}
             />
