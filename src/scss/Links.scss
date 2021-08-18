@@ -17,17 +17,16 @@
 }
 
 .LinkItem{
+    font-family: 'Satisfy';
+    font-size: 1.3em;
     text-align: center;
     width: 100%;
+    padding:10px 0;
     a{
         text-align: center;
-    }
-}
-
-.GitHub{
-    img{
-        background-color:black;
-        border-radius: 50%;
+        &:hover{
+            color:#100298;
+        }
     }
 }
 
@@ -38,17 +37,3 @@
     background-color: #525252;
 }
 
-.Linkedin{
-    img{
-        background-color: white;
-        border-radius: 50%;
-    }
-}
-
-@include media(">600"){
-    .LinksContainer{
-        justify-content: center;
-        align-items: start;
-        padding: 0 10em;
-    }
-}

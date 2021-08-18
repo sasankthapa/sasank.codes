@@ -8,7 +8,7 @@ const HeaderComponent:React.FC<{}>= () => {
    return <>
         <div className="Logo">
             <div className="imgcontainer">
-                <img src="https://media-exp1.licdn.com/dms/image/C5103AQFsFIh5uwQSyg/profile-displayphoto-shrink_200_200/0/1567899634627?e=1634774400&v=beta&t=i3NOfpIj-27pK_Mr1-xmrL3sNal-rYuazhG96XU9mFA" width="200" alt="profilephoto" draggable={false} />
+                <img width="200" height="200" src="https://media-exp1.licdn.com/dms/image/C5103AQFsFIh5uwQSyg/profile-displayphoto-shrink_200_200/0/1567899634627?e=1634774400&v=beta&t=i3NOfpIj-27pK_Mr1-xmrL3sNal-rYuazhG96XU9mFA" alt="profilephoto" draggable={false} />
             </div>
         </div>
         <div className="nametitle">

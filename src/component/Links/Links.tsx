@@ -1,18 +1,16 @@
 import React from 'react';
 import '../../scss/Links.scss'
-import Image from '../Image';
 
 interface LinkProps{
     name:string,
     href:string,
     extraClasses:string,
-    image:string
 }
 
-const Link:React.FC<LinkProps>=({name,href,extraClasses,image})=>{
+const Link:React.FC<LinkProps>=({name,href,extraClasses})=>{
         return <div className={extraClasses+" LinkItem"}>
             <a key={name} href={href}>
-                <Image image={image} alt={name+' logo'} width={32} height={32}/>    
+                {name}
             </a>
         </div>
 }

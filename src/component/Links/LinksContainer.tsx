@@ -1,6 +1,4 @@
 import React from 'react';
-import GitHubImage from '../../assets/GitHub-Mark-Light-64px.png'
-import LinkedinImage from '../../assets/LI-In-Bug.png'
 import Link from './Links';
 
 interface LinkConfig{
@@ -17,14 +15,17 @@ const LinksContainer:React.FC<{}> = () =>{
             name:'GitHub',
             href:'http://github.com/sasankthapa',
             extraClasses:'GitHub ',
-            image:GitHubImage
         },
         {
             name:'Linkedin',
             href:'https://www.linkedin.com/in/sasank-t-b815b1104/',
             extraClasses:'Linkedin ',
-            image:LinkedinImage
         },
+        {
+            name:'Blog',
+            href:'https://sasank.codes/blog',
+            extraClasses:'Blog ',
+        }
     ]
 
     return <div className="LinksContainer">
@@ -32,7 +33,6 @@ const LinksContainer:React.FC<{}> = () =>{
             return <Link name={linkItem.name}
                     href={linkItem.href}
                     extraClasses={linkItem.extraClasses}
-                    image={linkItem.image}
             />
         })}
     </div>

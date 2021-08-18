@@ -16,9 +16,11 @@
 @keyframes growanim{
     0%{
         width: 0%;
+        height: 0%;
     }
     100%{
         width:100%;
+        height:100%;
     }
 }
 
@@ -39,10 +41,11 @@
 
     &:after{
         content:'';
+        z-index: 0;
         position: absolute;
         top:100%;
         left:0%;
-        height:3px;
+        height:100px;
         width:100%;
         transition: background 1.8s ease-in-out;
     }
@@ -94,10 +97,5 @@
         font-size:3.9em;
         width: 4.5vw;
     }
-}
-
-.show{
-    visibility:visible;
-    transform: translateY(0%);
 }
 
