@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../scss/LinksContainer.scss';
 import GitHubImage from '../../assets/GitHub-Mark-Light-64px.png'
 import LinkedinImage from '../../assets/LI-In-Bug.png'
 import Link from './Links';

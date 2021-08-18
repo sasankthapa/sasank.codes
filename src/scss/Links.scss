@@ -1,13 +1,11 @@
 @import 'include-media';
 @import 'Function';
+@import 'common';
 
 .LinksContainer{
-    @include getLinksGridLocation();
-    display: flex;
+    @include flexCenter();
     flex-direction: column;
-    width: 100%;
-    align-items: start;
-    justify-content: center;
+    @include getLinksGridLocation();
     & .grayed{
         background-color: gray; 
     }
@@ -19,15 +17,11 @@
 }
 
 .LinkItem{
-    align-items: center;
-    display:flex;
+    text-align: center;
     width: 100%;
     a{
-        justify-content: flex-start;
-        align-items: center;
-        display:flex;
+        text-align: center;
     }
-    height: 50%;
 }
 
 .GitHub{

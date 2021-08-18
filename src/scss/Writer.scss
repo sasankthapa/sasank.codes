@@ -1,11 +1,6 @@
 @import 'include-media';
-@import 'mediavarload';
 @import 'Function';
-
-@mixin hundreds {
-    width:100%;
-    height:100%;
-}
+@import 'common';
 
 @keyframes slideIn{
     0%{
@@ -28,12 +23,12 @@
 }
 
 .MainWriter{
-    display: flex;
-    align-items: center;
-    overflow: visible;
+    background-color: #FFEEDB;
+    @include flexCenter();
+    z-index: 1;
     width:100%;
     height: 60%;
-    justify-content: center;
+    transition: all 1s linear;
     @include media("<800px"){
         height:30%;
     }
@@ -44,15 +39,11 @@
 
     &:after{
         content:'';
-        z-index: 0;
         position: absolute;
-        height:3px;
         top:100%;
         left:0%;
-        width:0%;
-        animation: growanim 3s linear;
-        background: lightslategray;
-        animation-fill-mode: forwards;
+        height:3px;
+        width:100%;
         transition: background 1.8s ease-in-out;
     }
 
@@ -63,15 +54,21 @@
     }
 }
 
-.blue{
+.coral{
     &:after{
         background: lightcoral;
     }
 }
 
-.gray{
+.sblue{
     &:after{
         background: lightsteelblue;
+    }
+}
+
+.gray{
+    &:after{
+        background: lightslategray;
     }
 }
 
@@ -82,7 +79,6 @@
     text-align: center;
     animation: slideIn 0.1s linear;
     animation-fill-mode: forwards;
-    z-index: 1;
 
     @include media(">450px"){
         width: 3.2vw;

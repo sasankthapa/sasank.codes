@@ -5,7 +5,7 @@ import '../scss/Body.scss';
 const BodyComponent:React.FC<{}> = () => {
 
     const [currIndex,setCurrIndex]=useState<number>(0);
-    const colorClasses=['',' gray',' blue'];
+    const colorClasses=[' coral',' sblue',' gray'];
 
     useEffect(()=>{
         setTimeout(()=>{
