@@ -1,6 +1,7 @@
 import React from 'react'
 import '../scss/ProjectContainer.scss'
 import { FaNodeJs } from 'react-icons/fa';
+import { SiTensorflow } from 'react-icons/si';
 import Technologies from './Technologies';
 
 interface ProjectContainerProps{
@@ -20,17 +21,17 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
         <div className="container">
             <div className="fiftyWidth">
                 <h1>
-                Aspiring ML Engineer!
+                    Aspiring ML Engineer!
                 </h1>
             </div>
-            <div className="threeD fiftyWidth">
-                <Technologies icons={[FaNodeJs]}/>
+            <div className="threeD outericonContainer fiftyWidth">
+                <Technologies icons={[SiTensorflow,FaNodeJs]}/>
             </div>
         </div>
         <div className="container">
             <div className="fiftyWidth">
                 <h1>
-                Frontend Engineer
+                    Frontend Engineer
                 </h1>
             </div>
             <div className="threeD fiftyWidth">
@@ -39,7 +40,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
         <div className="container">
             <div className="fiftyWidth">
                 <h1>
-                Fullstack Developer
+                    Fullstack Developer
                 </h1>
             </div>
             <div className="threeD fiftyWidth">

@@ -7,7 +7,7 @@ import {ReactElement} from 'react';
 const BodyComponent:React.FC<{}> = () => {
 
     const [currIndex,setCurrIndex]=useState<number>(0);
-    const [mouseIn,setMouseIn]=useState<boolean>(false);
+    const [mouseIn,setMouseIn]=useState<boolean>(true);
     const colorClasses=['coralBG','sblueBG','grayBG'];
 
     useEffect(()=>{
@@ -23,11 +23,11 @@ const BodyComponent:React.FC<{}> = () => {
         </div>
     }
 
-    const mouseEnterHandler = (e:MouseEvent) => {
+    const mouseEnterHandler = () => {
         setMouseIn(true);
     }
 
-    const mouseExitHandler = (e:MouseEvent) => {
+    const mouseExitHandler = () => {
         setMouseIn(false);
 
     }

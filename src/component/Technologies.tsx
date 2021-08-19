@@ -8,9 +8,9 @@ interface TechnologyProps{
 const Technologies:React.FC<TechnologyProps> = ({icons})=> {
     return <>
         {icons.map((Icon)=>{
-            return <div className="icon">
-                <Icon className="reacticon"/>
-            </div>
+                return <div className="innericonContainer">
+                    <Icon className="reacticon threeD" />
+                </div>
         })}
     </>
 }
