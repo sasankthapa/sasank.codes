@@ -8,3 +8,40 @@
     justify-content: center; 
     align-items: center;
 }
+
+@keyframes growanim{
+    0%{
+        width: 0%;
+    }
+    100%{
+        z-index:0;
+        width:100%;
+    }
+}
+
+.coralBG{
+    &:after{
+        background: lightcoral;
+    }
+}
+
+.sblueBG{
+    &:after{
+        background: lightsteelblue;
+    }
+}
+
+.grayBG{
+    &:after{
+        background: lightslategray;
+    }
+}
+
+.animateAfter{
+    &:after{
+        z-index: 0;
+        animation: growanim 3s linear;
+        animation-timing-function: cubic-bezier(.47,.99,.92,.8);
+        animation-fill-mode:forwards;
+    }
+}

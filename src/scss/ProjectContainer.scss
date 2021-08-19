@@ -1,23 +1,43 @@
 @import "Function";
+@import "common";
 
-@keyframes growanim{
-    0%{
-        width: 0%;
-    }
-    100%{
-        width:100%;
+.ProjectContainer{
+    width: 300%;
+    height:100%;
+    display: flex;
+    position: absolute;
+    transition:all 1s ease-in;
+    *{
+        z-index: 1;
+
     }
 }
 
-.ProjectContainer{
-    @include getProjDisplayOption();
-    border-radius: 10px;
-    width: 0%;
-    height:100%;
-    animation: growanim 3s linear;
-    animation-fill-mode: forwards;
-    transition: background 1.8s ease-in-out;
-    overflow: hidden;
+.container{
+    display: inline-block;
+    @include hundreds();
+}
+
+.Projects{
+    position: relative;
+    &:after{
+        content:'';
+        z-index:0;
+        position: absolute;
+        top:0%;
+        left:0%;
+        width:0%;
+        height:100%;
+        transition: background 1.8s ease-in-out;
+    }
+}
+
+.transform100{
+    transform: translateX(-33.33%);
+}
+
+.transform200{
+    transform: translateX(-66.66%);
 }
 
 .coral{
@@ -30,4 +50,16 @@
 
 .gray{
     background: lightslategray;
+}
+
+.fiftyWidth{
+    z-index:2;
+    display: flex;
+    flex-direction:row;
+    width:50%;
+    height:100%
+}
+
+.overflowH{
+    overflow: hidden;
 }

@@ -2,11 +2,12 @@ import React,{useState,useEffect} from 'react';
 import Writer from './Writer';
 import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
+import {ReactElement} from 'react';
 
 const BodyComponent:React.FC<{}> = () => {
 
     const [currIndex,setCurrIndex]=useState<number>(0);
-    const colorClasses=[' coral',' sblue',' gray'];
+    const colorClasses=['coralBG','sblueBG','grayBG'];
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -15,15 +16,19 @@ const BodyComponent:React.FC<{}> = () => {
         }},6000);
     },[currIndex])
 
-    console.log('ntoaheu')
+    const createOverFlowContainer = (element:ReactElement) => {
+        return <div className={"overflowH animateAfter Projects "+colorClasses[currIndex]}>
+            {element}
+        </div>
+    }
 
     return <>
-        <Writer currIndex={currIndex} extraClass={"desc"+colorClasses[currIndex]+"BG"} values={
+        <Writer currIndex={currIndex} extraClass={"desc animateAfter "+colorClasses[currIndex]} values={
             ['Aspiring ML Engineer',
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
-        <ProjectContainer extraclass={colorClasses[currIndex]}/>
+        {createOverFlowContainer(<ProjectContainer currIndex={currIndex}/>)}
     </>
 }
 

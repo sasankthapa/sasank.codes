@@ -13,15 +13,6 @@
     }
 }
 
-@keyframes growanim{
-    0%{
-        width: 0%;
-    }
-    100%{
-        width:100%;
-    }
-}
-
 .MainWriter{
     background-color: #FFEEDB;
     @include flexCenter();
@@ -41,34 +32,14 @@
         top:100%;
         left:0%;
         height:3px;
-        width:100%;
+        width:0%;
         transition: background 1.8s ease-in-out;
-        animation: growanim 3s linear;
-        animation-timing-function: cubic-bezier(.47,.99,.92,.8);
     }
 
     @for $index from 1 to 30 {
         .Character:nth-child(#{$index}){
             animation-delay:(0.1s+($index * 0.1s));
         }
-    }
-}
-
-.coralBG{
-    &:after{
-        background: lightcoral;
-    }
-}
-
-.sblueBG{
-    &:after{
-        background: lightsteelblue;
-    }
-}
-
-.grayBG{
-    &:after{
-        background: lightslategray;
     }
 }
 
