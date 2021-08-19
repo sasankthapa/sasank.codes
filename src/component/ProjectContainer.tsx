@@ -1,5 +1,7 @@
-import React, {ReactChildren} from 'react'
+import React from 'react'
 import '../scss/ProjectContainer.scss'
+import { FaNodeJs } from 'react-icons/fa';
+import Technologies from './Technologies';
 
 interface ProjectContainerProps{
     currIndex:number,
@@ -21,8 +23,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
                 Aspiring ML Engineer!
                 </h1>
             </div>
-            <div className="3d-container fiftyWidth">
-                
+            <div className="threeD fiftyWidth">
+                <Technologies icons={[FaNodeJs]}/>
             </div>
         </div>
         <div className="container">
@@ -31,7 +33,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
                 Frontend Engineer
                 </h1>
             </div>
-            <div className="3d-container fiftyWidth">
+            <div className="threeD fiftyWidth">
             </div>
         </div>
         <div className="container">
@@ -40,7 +42,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
                 Fullstack Developer
                 </h1>
             </div>
-            <div className="3d-container fiftyWidth">
+            <div className="threeD fiftyWidth">
             </div>
         </div>
     </div>
