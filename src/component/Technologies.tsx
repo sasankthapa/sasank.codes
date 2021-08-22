@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEventHandler} from 'react';
 import {IconType} from 'react-icons';
 
 interface TechnologyProps{
@@ -6,13 +6,16 @@ interface TechnologyProps{
 }
 
 const Technologies:React.FC<TechnologyProps> = ({icons})=> {
-    return <>
+    
+    const handleMouseMove:MouseEventHandler<HTMLDivElement>=(e)=>{
+        console.log(e);
+    }
+
+    return <div onMouseMove={handleMouseMove} className="threeD outericonContainer">
         {icons.map((Icon)=>{
-                return <div className="innericonContainer">
-                    <Icon className="reacticon threeD" />
-                </div>
+            return <Icon className="reacticon"/>
         })}
-    </>
+    </div>
 }
 
 export default Technologies;

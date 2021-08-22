@@ -1,7 +1,7 @@
 import React from 'react'
 import '../scss/ProjectContainer.scss'
 import { FaNodeJs } from 'react-icons/fa';
-import { SiTensorflow } from 'react-icons/si';
+import { SiPython, SiTensorflow } from 'react-icons/si';
 import Technologies from './Technologies';
 
 interface ProjectContainerProps{
@@ -24,9 +24,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
                     Aspiring ML Engineer!
                 </h1>
             </div>
-            <div className="threeD outericonContainer fiftyWidth">
-                <Technologies icons={[SiTensorflow,FaNodeJs]}/>
-            </div>
+            <Technologies icons={[SiTensorflow,FaNodeJs]}/>
         </div>
         <div className="container">
             <div className="fiftyWidth">

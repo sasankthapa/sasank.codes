@@ -36,12 +36,15 @@
 }
 
 .outericonContainer{
-    width:100%;
+    width:50%;
     height:100%;
     display: flex;
-    transform: rotateX(45deg);
-    background-color: rgba($color: red, $alpha: 0.3);
-    perspective: 1000px;
+    justify-content: center;
+    align-items: center;
+    transform-origin:80% center ;
+    transform: scale(0.8);
+    background: rgba($color:black, $alpha: 0.6);
+    transition: all 1s;
 }
 
 .innericonContainer{
@@ -58,15 +61,19 @@
 }
 
 .reacticon{
-    width:32px;
-    height:32px;
-    position: absolute;
-    transition: all 1s ease-in-out;
-    transform-origin: center;
-    transform:rotateX(-45deg) translateZ(100px);
+    position:flex;
+    margin: 1vh;
+    width:42px;
+    height:42px;
+    perspective: 1500px;
+    transform-origin:bottom;
+    transform: translate(1px,1px,1px);
+    //transform:rotateX(-36deg) rotateY(0);
+    border-radius: 50%;
+    transition: all 1s ease;
+    filter:drop-shadow(1px 2px 3px white);
     &:hover{
-        color:blue;
-        transform: rotateY(360deg);
+        transform:rotateX(-36deg) rotateY(360deg);
     }
 }
 
