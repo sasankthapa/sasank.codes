@@ -37,25 +37,22 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
         }
     }
 
-    const calculateRotationAndRate=()=>{
-        if(scene.current){
-            var width=scene.current.offsetWidth
-            var height=scene.current.offsetHeight
-            var rotateY=((clientX-scene.current.offsetLeft-width/2)/width)*30.0;
-            scene.current.style.transform=`rotateX(10deg) rotateY(${rotateY}deg)`;
-        }
+    var rotateX=0;
+    var rotateY=0;
+    if(scene.current){
+        var width=scene.current.offsetWidth
+        var height=scene.current.offsetHeight
+        rotateX=((clientX-scene.current.offsetLeft-width/2)/width)*30.0;
+        rotateY=((clientY-scene.current.offsetTop-height/2)/height)*30.0;
     }
 
-    useEffect(()=>{
-        calculateRotationAndRate()
-    });
-
-    return <div ref={scene} draggable={false} className={classesName.join(' ')}
+    return <div draggable={false} className={classesName.join(' ')}
                 onMouseMove={mouseMoveHandler}
                 onTouchStart={touchHandler}
                 onTouchMove={touchHandler}>
-        <div className="plane">
-            <Cuboid width={10} height={10} depth={3} Front={()=><h3>Hello</h3>}/>
+        <div ref={scene} className="plane">
+            <Cuboid width={30} height={30} depth={3} Front={()=><h3>Hello</h3>}
+                rotateX={0} rotateY={0} rotateZ={0} x={50} y={50} z={0}/>
         </div>
     </div>
 }

@@ -7,15 +7,17 @@ $perspective:800;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: rotateX(10deg) rotateY(0deg);
+    transform-origin: 50% 50%;
+    perspective: 1000px;
 }
 
 .plane{
-    background: hsla(20,80%,50%,0.15);
+    background-color: rgba($color: lightslategray, $alpha: 0.7);
     height: 100vmin;
     width:100vmin;
     transform-style:preserve-3d ;
-    transform: rotateX(0deg) rotateY(0deg) rotateX(90deg) translate3d(0,0,0);
+    transition: all 3s linear;
+    transform: rotateX(-20deg) rotateY(-20deg) rotateX(90deg) translate3d(0,0,-0vmin);
 }
 
 .iconClass{
@@ -29,12 +31,12 @@ $perspective:800;
     font-size:1rem;
     box-sizing: border-box;
     transform-origin: 50% 50%;
-    &:nth-of-type(1){
-        transform: translate3d(200px,200px,100px);
-    }
+    transition: transform 1s linear;
 }
 
 .cuboid div{
-        border:3px solid black;
-        background: hsla(90,80%,50%,1);
+    transform-style:preserve-3d ;
+    border: 5px solid black;
+    background: lightcoral;
+    text-align: center;
 }
