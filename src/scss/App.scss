@@ -3,6 +3,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
 .App{
@@ -20,6 +21,11 @@
         grid-template-columns: repeat(12,1fr);
         grid-template-rows: repeat(6,1fr);
     }
+}
+
+body{
+    overflow-x: hidden;
+    position: relative;
 }
 
 @media (min-aspect-ratio: 28/9){
