@@ -8,13 +8,12 @@ const BodyComponent:React.FC<{}> = () => {
 
     const [currIndex,setCurrIndex]=useState<number>(0);
     const colorClasses=['coralBG','sblueBG','grayBG'];
+    const [pauseAnim,setPauseAnim]=useState<boolean>(false);
 
     useEffect(()=>{
-        setTimeout(()=>{
-            if(currIndex <3){
-                setCurrIndex((prev)=>(prev+1)%3);
-        }},3000);
-    },[currIndex])
+        if(!pauseAnim){
+            setCurrIndex((prev)=>(prev+1)%3);
+    }},[pauseAnim]);
 
     const createOverFlowContainer = (element:ReactElement) => {
         return <div className={"overflowH Projects "+colorClasses[currIndex]}>
@@ -28,7 +27,7 @@ const BodyComponent:React.FC<{}> = () => {
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
-        {createOverFlowContainer(<ProjectContainer currIndex={currIndex}/>)}
+        {createOverFlowContainer(<ProjectContainer currIndex={currIndex} setPauseAnim={setPauseAnim}/>)}
     </>
 }
 
