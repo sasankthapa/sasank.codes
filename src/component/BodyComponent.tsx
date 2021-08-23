@@ -11,7 +11,7 @@ const BodyComponent:React.FC<{}> = () => {
 
     useEffect(()=>{
         setTimeout(()=>{
-            if(currIndex <3 && false){
+            if(currIndex <3){
                 setCurrIndex((prev)=>(prev+1)%3);
         }},3000);
     },[currIndex])
