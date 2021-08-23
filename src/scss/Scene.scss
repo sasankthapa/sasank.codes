@@ -8,7 +8,7 @@ $perspective:800;
     align-items: center;
     justify-content: center;
     transform-origin: 50% 50%;
-    perspective: 1000px;
+    perspective: 2000px;
 }
 
 .plane{
@@ -16,8 +16,8 @@ $perspective:800;
     height: 100vmin;
     width:100vmin;
     transform-style:preserve-3d ;
-    transition: all 3s linear;
-    transform: rotateX(-20deg) rotateY(-20deg) rotateX(90deg) translate3d(0,0,-0vmin);
+    transition: transform 1s linear;
+    transform: rotateX(-20deg) rotateY(10deg) rotateX(90deg) translate3d(0,0,-0vmin);
 }
 
 .iconClass{

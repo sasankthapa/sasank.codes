@@ -37,22 +37,22 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex}) => {
         }
     }
 
-    var rotateX=0;
-    var rotateY=0;
-    if(scene.current){
-        var width=scene.current.offsetWidth
-        var height=scene.current.offsetHeight
-        rotateX=((clientX-scene.current.offsetLeft-width/2)/width)*30.0;
-        rotateY=((clientY-scene.current.offsetTop-height/2)/height)*30.0;
-    }
+    useEffect(()=>{
+        console.log('aonetu');
+        if(scene.current){
+            var width=scene.current.offsetWidth
+            var rotateY=((clientX-width/2)/width)*20.0;
+            scene.current.style.transform=`rotateX(-20deg) rotateY(${-rotateY}deg) rotateX(90deg) translate3d(0,0,0)`;
+        }
+    })
 
     return <div draggable={false} className={classesName.join(' ')}
                 onMouseMove={mouseMoveHandler}
                 onTouchStart={touchHandler}
                 onTouchMove={touchHandler}>
-        <div ref={scene} className="plane">
+        <div className="plane" ref={scene}>
             <Cuboid width={30} height={30} depth={3} Front={()=><h3>Hello</h3>}
-                rotateX={0} rotateY={0} rotateZ={0} x={50} y={50} z={0}/>
+                rotateX={0} rotateY={0} rotateZ={0} x={0} y={50} z={0}/>
         </div>
     </div>
 }
