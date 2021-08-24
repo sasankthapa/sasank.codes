@@ -39,8 +39,39 @@ $perspective:800;
     font-size:1rem;
     box-sizing: border-box;
     transform-origin: 50% 50%;
-    transition: transform 1s linear;
+    transition: transform 1.8s linear;
 }
+
+.left{
+    transform: translate(-50%,-50%) rotateY(0) translate3d(-60vmin,0,0) ;
+}
+
+.right{
+    transform: translate(-50%,-50%) rotateY(0) translate3d(60vmin,0,0) rotateZ(180deg);
+}
+
+.UIbutton{
+    width:5vmin;
+    height:5vmin;
+    cursor: pointer;
+    transform-style:preserve-3d ;
+    position: absolute;
+    transform-origin: 50% 50%;
+    top:50%;
+    left:50%;
+    transition: all 1s ease;
+    clip-path: polygon(39% 38%, 100% 50%, 100% 60%, 41% 68%, 60% 100%, 0 51%, 59% 0);
+    background: linear-gradient(to left, lightslategray, lightblue, lightcoral,lightslategray);
+    background-size: 400% 100%;
+    background-position: translate(-100%,0);
+    z-index: 1000;
+
+    &:hover{
+        width:10vmin;
+        height:10vmin;
+    }
+}
+
 
 .paper{
     $color:white;

@@ -9,6 +9,7 @@ type config={
         rotateY:number,
         rotateZ:number,
     }
+
 export const getMainConfig=()=>{
     return [{
         width:50,

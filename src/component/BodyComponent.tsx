@@ -1,8 +1,10 @@
-import React,{useState,useEffect } from 'react';
+import React,{useState,useEffect, useCallback } from 'react';
 import Writer from './Writer';
 import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
 import {ReactElement} from 'react';
+
+var pauseAnima=false;
 
 const BodyComponent:React.FC<{}> = () => {
 
@@ -10,13 +12,33 @@ const BodyComponent:React.FC<{}> = () => {
     const colorClasses=['coralBG','sblueBG','grayBG'];
     const [pauseAnim,setPauseAnim]=useState<boolean>(false);
 
-    useEffect(()=>{
-        if(!pauseAnim){
-            setCurrIndex((prev)=>(prev+1)%3);
-    }},[pauseAnim]);
+    function x() {
+        const animationPromise:Promise<()=>void> = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                if(isPaused())
+                    return
+                resolve(()=>setCurrIndex(prev=>(prev+1)%3))
+            },3000)
+        })
+        return animationPromise
+    }
+
+    const animate=()=>{
+        x().then((callback)=>{
+            console.log(pauseAnim)
+            if(!pauseAnim){
+                callback();
+                animate();
+            }
+        })
+    }
+
+    const isPaused = useCallback(()=>{
+        return pauseAnim
+    },[pauseAnim])
 
     const createOverFlowContainer = (element:ReactElement) => {
-        return <div className={"overflowH Projects "+colorClasses[currIndex]}>
+        return <div className={"overflowH animateAfter Projects "+colorClasses[currIndex]}>
             {element}
         </div>
     }
@@ -27,7 +49,7 @@ const BodyComponent:React.FC<{}> = () => {
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
-        {createOverFlowContainer(<ProjectContainer currIndex={currIndex} setPauseAnim={setPauseAnim}/>)}
+        {createOverFlowContainer(<ProjectContainer currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
     </>
 }
 

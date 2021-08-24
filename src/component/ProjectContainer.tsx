@@ -11,15 +11,14 @@ import {GiAirplaneArrival} from 'react-icons/gi';
 interface ProjectContainerProps{
     currIndex:number,
     setPauseAnim:(value:boolean)=>void,
+    setCurrIndex:(value:number)=>void,
 }
 
-const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAnim}) => {
+const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAnim,setCurrIndex}) => {
+    const [moving,setMoving]=useState<boolean>(false);
     const [clientX,setClientX]=useState(0)
     const [clientY,setClientY]=useState(0)
-    const [rateX,setRateX]=useState(0);
-    const [rateY,setRateY]=useState(0);
 
-    const scene=useRef<HTMLDivElement>(null);
     const plane=useRef<HTMLDivElement>(null);
 
     const classesName=["scene"];
@@ -30,10 +29,9 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
     }
 
     const mouseMoveHandler:MouseEventHandler<HTMLDivElement> = (e) => {
+
         setClientX(e.clientX);
         setClientY(e.clientY);
-        setRateX(e.movementX);
-        setRateY(e.movementY);
     }
 
     const mouseExitHandler:MouseEventHandler<HTMLDivElement>=()=>{
@@ -52,10 +50,12 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
 
     useEffect(()=>{
         if(plane.current){
-            var width=plane.current.offsetWidth
-            var rotateY=((clientX-width/2)/width)*30.0;
-            var translateX=currIndex===0?0:currIndex===1?100:200;
-            plane.current.style.transform=`rotateX(-20deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
+            console.log(plane.current.offsetTop)
+            if(plane.current.offsetTop!==clientX){
+                var width=plane.current.offsetWidth
+                var rotateY=((clientX-width/2)/width)*30.0;
+                plane.current.style.transform=`rotateX(-20deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
+            }
         }
     })
 
@@ -63,18 +63,6 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
     if(plane.current){
         var height=plane.current.offsetHeight;
         rotateX=((clientY-height/2)/height)*90.0;
-    }
-
-    const eachStyle=(transform:number)=>{
-        return {
-            transition:'all 1s ease',
-            transform:`transform(-50%,50%) translate3d(0,0,${transform}px)`,
-            transformOrigin:'50% 50%',
-            width:'100%',
-            height:'100%',
-            position:'absolute' as 'absolute',
-            transformStyle:'preserve-3d' as 'preserve-3d',
-        }
     }
 
     const [mainconfig1,mainconfig2]=getMainConfig()
@@ -97,6 +85,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                 return <Cuboid config={config} extraClass=""/>
             })}
         </div>
+        <div className="left UIbutton" onClick={()=>{setCurrIndex((currIndex===0?currIndex+2:currIndex-1))}} ></div>
+        <div className="right UIbutton" onClick={()=>{setCurrIndex((currIndex+1)%3)}}></div>
     </div>
 }
 
