@@ -3,6 +3,7 @@ import Writer from './Writer';
 import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
 import {ReactElement} from 'react';
+import {getRandomConfigList} from './purecss/CuboidHandler';
 
 var pauseAnima=false;
 
@@ -43,13 +44,15 @@ const BodyComponent:React.FC<{}> = () => {
         </div>
     }
 
+    const randomConfList=getRandomConfigList(3);
+
     return <>
         <Writer currIndex={currIndex} extraClass={"desc animateAfter "+colorClasses[currIndex]} values={
             ['Aspiring ML Engineer',
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
-        {createOverFlowContainer(<ProjectContainer currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
+        {createOverFlowContainer(<ProjectContainer randomConfList={randomConfList} currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
     </>
 }
 

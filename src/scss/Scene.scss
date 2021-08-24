@@ -43,11 +43,11 @@ $perspective:800;
 }
 
 .left{
-    transform: translate(-50%,-50%) rotateY(0) translate3d(-60vmin,0,0) ;
+    transform: translate(-50%,-50%) rotateY(0) translate3d(-40vmin,0,0) ;
 }
 
 .right{
-    transform: translate(-50%,-50%) rotateY(0) translate3d(60vmin,0,0) rotateZ(180deg);
+    transform: translate(-50%,-50%) rotateY(0) translate3d(40vmin,0,0) rotateZ(180deg);
 }
 
 .UIbutton{
@@ -86,4 +86,22 @@ $perspective:800;
 
 .cuboid div{
     transform-style:preserve-3d ;
+}
+
+.IconHolder{
+    transition: all 1s ease;
+    transform-origin:center;
+    width:5vmin;
+    height:5vmin;
+    border-radius: 50%;
+    background: black;
+    padding: 1vmin;
+    position: absolute;
+}
+
+.iconstars{
+    width:100%;
+    height:100%;
+    color:white;
+    transition: all 1s ease;
 }

@@ -7,13 +7,17 @@ interface TechnologyProps{
 
 const Technologies:React.FC<TechnologyProps> = ({icons})=> {
     
-    const handleMouseMove:MouseEventHandler<HTMLDivElement>=(e)=>{
-        console.log(e);
+    const getRandInt=(min:number,max:number)=>{
+        var rand=Math.random()
+        return (min+rand*(max-min))
     }
 
-    return <div onMouseMove={handleMouseMove} className="threeD outericonContainer">
-        {icons.map((Icon)=>{
-            return <Icon className="reacticon"/>
+    return <div className="cuboid IconPlane">
+        {icons.map((Icon,index)=>{
+            return <div key={index+'icon'} className="IconHolder" style={{
+                    transform:`translate3d(${getRandInt(30,60)}vmin,${getRandInt(1,20)}vmin,${getRandInt(30,-60)}vmin)`}}>
+                <Icon className="iconstars"/>
+                </div>
         })}
     </div>
 }
