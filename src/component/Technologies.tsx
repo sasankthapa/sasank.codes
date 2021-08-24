@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, useEffect, useState} from 'react';
 import {IconType} from 'react-icons';
 
 interface TechnologyProps{
@@ -6,17 +6,28 @@ interface TechnologyProps{
 }
 
 const Technologies:React.FC<TechnologyProps> = ({icons})=> {
-    
+
     const getRandInt=(min:number,max:number)=>{
         var rand=Math.random()
         return (min+rand*(max-min))
     }
 
-    return <div className="cuboid IconPlane">
+    const genStarsRandom=(i:number)=>{
+        const starsRandom=[];
+        for(var k=0;k < i;k++){
+            var randX =Math.random()*1;
+            starsRandom.push({x: getRandInt(0,200) , y:getRandInt(0,75),z:getRandInt(-30,30)})
+        }
+        return starsRandom
+    }
+
+    const [locations,]= useState(genStarsRandom(15))
+    
+    return <div className="IconPlane">
         {icons.map((Icon,index)=>{
             return <div key={index+'icon'} className="IconHolder" style={{
-                    transform:`translate3d(${getRandInt(30,60)}vmin,${getRandInt(1,20)}vmin,${getRandInt(30,-60)}vmin)`}}>
-                <Icon className="iconstars"/>
+                    transform:`translate(-50%,-50%) translate3d(${locations[index].x}vmin,${locations[index].y}vmin,${locations[index].z}vmin)`}}>
+                    <Icon className="iconstars"/>
                 </div>
         })}
     </div>

@@ -3,7 +3,6 @@ import Cuboid from './purecss/Cuboid'
 import '../scss/Scene.scss'
 import '../scss/ProjectContainer.scss'
 import { getAllIcons, getCardDescInfo, getMainConfig, getRandomConfigList } from './purecss/CuboidHandler'
-import { SiPython, SiTensorflow } from 'react-icons/si';
 import Technologies from './Technologies';
 
 interface ProjectContainerProps{
@@ -24,7 +23,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
 
     const mouseMoveHandler:MouseEventHandler<HTMLDivElement> = (e) => {
         if(plane.current){
-            var rotateX=((e.clientY-plane.current.offsetTop)/plane.current.offsetHeight)*30;
+            var rotateX=((e.clientY-plane.current.offsetTop)/plane.current.offsetHeight)*20;
             var rotateY=((e.clientX/plane.current.offsetWidth)-0.5)*20;
             plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
         }
@@ -35,7 +34,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
     }
 
     const touchHandler:TouchEventHandler<HTMLDivElement> = (e)=>{
-
+        //TODO: HANDLE TOUCH
     }
 
     const mainconfig1=getMainConfig()
@@ -61,8 +60,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                         }
                         return <Cuboid key={index+'Cuboid'} config={config} extraClass="paper"/>
                     })}
+                    <Technologies icons={getAllIcons()}/>
                 </div>
-        <Technologies icons={getAllIcons()}/>
         <div className="left UIbutton" onClick={()=>{setCurrIndex((currIndex===0?currIndex+2:currIndex-1))}} ></div>
         <div className="right UIbutton" onClick={()=>{setCurrIndex((currIndex+1)%3)}}></div>
     </div>
