@@ -8,7 +8,30 @@ type config={
         rotateX:number,
         rotateY:number,
         rotateZ:number,
+}
+
+const cardInfo=[
+    {
+        'title':'Pakula Biomedical Scolars: Using Machine Learning for Liver Disease Classification',
+        'body':'Analyzed and improved machine learning models creating a classification model for ' + 
+            'liver disease that had 16% improvement compared to previous models on a generalized dataset.'
+    },
+    {
+        'title':'Software Developer at OED (Open Source Database)'
+    },
+
+];
+
+export const getCardDescInfo=(currIndex:number)=>{
+    switch(currIndex){
+        case 0:
+            return cardInfo[0]
+        case 1:
+            return cardInfo[0]
+        case 2:
+            return cardInfo[0]
     }
+}
 
 export const getMainConfig=()=>{
     return [{
@@ -18,7 +41,7 @@ export const getMainConfig=()=>{
         rotateX:20,
         rotateY:0,
         rotateZ:0,
-        x:0,
+        x:-5,
         y:50,
         z:0
     },{
@@ -37,9 +60,9 @@ export const getMainConfig=()=>{
 export const getRandomConfig=():config=>{
     var rand=Math.random()
     return {
-        width:rand*50,
-        height:rand*30,
-        depth:rand*1,
+        width:50,
+        height:30,
+        depth:1,
         rotateX:rand*20,
         rotateY:rand*20,
         rotateZ:rand*20,

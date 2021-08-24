@@ -12,6 +12,10 @@ const BodyComponent:React.FC<{}> = () => {
     const colorClasses=['coralBG','sblueBG','grayBG'];
     const [pauseAnim,setPauseAnim]=useState<boolean>(false);
 
+    const isPaused = useCallback(()=>{
+        return pauseAnim
+    },[pauseAnim])
+
     function x() {
         const animationPromise:Promise<()=>void> = new Promise((resolve,reject)=>{
             setTimeout(()=>{
@@ -32,10 +36,6 @@ const BodyComponent:React.FC<{}> = () => {
             }
         })
     }
-
-    const isPaused = useCallback(()=>{
-        return pauseAnim
-    },[pauseAnim])
 
     const createOverFlowContainer = (element:ReactElement) => {
         return <div className={"overflowH animateAfter Projects "+colorClasses[currIndex]}>

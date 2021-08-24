@@ -9,6 +9,19 @@
     transition:all 1s ease-in;
 }
 
+.ProjectDesc{
+    width:100%;
+    height:100%;
+    border: 3px solid black;
+    padding:5vmin 1vmin;
+    animation: fadein 3s ease-in-out;
+    cursor: grab;
+    h3{
+        text-align: center;
+        margin-bottom:1vmin;
+    }
+}
+
 .container{
     z-index: 1;
     display: inline-block;

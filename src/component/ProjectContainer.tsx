@@ -1,12 +1,10 @@
 import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler} from 'react'
 import Cuboid from './purecss/Cuboid'
-import '../scss/ProjectContainer.scss'
 import '../scss/Scene.scss'
-import { getMainConfig, getRandomConfigList } from './purecss/CuboidHandler'
-import { FaNodeJs } from 'react-icons/fa';
+import '../scss/ProjectContainer.scss'
+import { getCardDescInfo, getMainConfig, getRandomConfigList } from './purecss/CuboidHandler'
 import { SiPython, SiTensorflow } from 'react-icons/si';
 import Technologies from './Technologies';
-import {GiAirplaneArrival} from 'react-icons/gi';
 
 interface ProjectContainerProps{
     currIndex:number,
@@ -29,7 +27,6 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
     }
 
     const mouseMoveHandler:MouseEventHandler<HTMLDivElement> = (e) => {
-
         setClientX(e.clientX);
         setClientY(e.clientY);
     }
@@ -77,12 +74,20 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         <div className="plane" ref={plane}>
             {randomConfList.map((config,index)=>{
                 if(index===currIndex){
-                    return <Cuboid extraClass="paper" front={()=><h3>Hello</h3>} config={mainconfig1}/>
+                    return <Cuboid extraClass="paper" front={()=>{
+                        const cardInfo=getCardDescInfo(currIndex);
+                        if(cardInfo===undefined)
+                            return <></>
+                        return <div className="ProjectDesc"> 
+                            <h3>{cardInfo.title}</h3>
+                            <p>{cardInfo.body}</p>
+                        </div>
+                    }} config={mainconfig1}/>
                 }
                 if(index===(currIndex+1)%3){
-                    return <Cuboid extraClass="paper" front={()=><h3>Hello</h3>} config={mainconfig2}/>
+                    return <Cuboid extraClass="paper" front={()=><Technologies icons={[SiPython,SiTensorflow]} />} config={mainconfig2}/>
                 }
-                return <Cuboid config={config} extraClass=""/>
+                return <Cuboid config={config} extraClass="paper"/>
             })}
         </div>
         <div className="left UIbutton" onClick={()=>{setCurrIndex((currIndex===0?currIndex+2:currIndex-1))}} ></div>
