@@ -30,13 +30,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         if(plane.current){
             var rotateX=((clientY-plane.current.offsetTop)/plane.current.offsetHeight)*20;
             var rotateY=((clientX/plane.current.offsetWidth)-0.5)*20;
-            console.log('11')
-            plane.current.animate([{
-                    transform:`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`
-                },{
-                    transform:`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`
-            }])
-            //plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
+            console.log(rotateX,rotateY)
+            plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
         }
     },[clientX,clientY])
 
@@ -45,22 +40,18 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
     }
 
     function mouseMoveHandler(ev:MouseEvent){
+        console.log('her')
         setClientX(ev.clientX);
         setClientY(ev.clientY);
-        ev.target.removeEventListener('mousemove',mouseMoveHandler)
         if(plane.current)
-            plane.current.addEventListener('animationend',function(ev){
-                if(this===plane.current){
-                    scene.current.addEventListener('mousemove',mouseMoveHandler,{capture:true})
-                    this.removeEventListener('animationend',this)
-                }
-            })
+            plane.current.addEventListener('transitionend',function(ev){
+                scene.current.addEventListener('mousemove',mouseMoveHandler,{once:true})
+            },{once:true})
     }
 
     useEffect(()=>{
         if(scene.current){
-            console.log('here')
-            scene.current.addEventListener('mousemove',mouseMoveHandler,{capture:true})
+            scene.current.addEventListener('mousemove',mouseMoveHandler,{once:true})
         }
     },[])
 
@@ -75,10 +66,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                 onMouseLeave={mouseExitHandler}>
                 <div className="plane" ref={plane}>
                     {randomConfList.map((config,index)=>{
-                        if(index===currIndex){
-                            return <MainDisplay key={index+'Cuboid'} currIndex={currIndex}/>
-                        }
-                        return <Cuboid key={index+'Cuboid'} config={config} extraClass="paper"/>
+                        return <MainDisplay currIndex={index} key={index+'Cuboid'}  extraClass="paper" isMain={currIndex===index}/>
                     })}
                     <Technologies icons={getAllIcons()}/>
                 </div>

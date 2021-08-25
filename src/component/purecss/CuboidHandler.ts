@@ -15,8 +15,8 @@ type config={
         rotateZ:number,
 }
 
-type IconObject={
-    icon:IconType,
+export type IconObject={
+    Icon:IconType,
     info:string[]
 }
 
@@ -88,6 +88,17 @@ export const getAllIcons=()=>{
     return toReturn
 }
 
+export const getIconsWithInfo=(currIndex:number)=>{
+    switch(currIndex){
+        case 0:
+            return mlIcons;
+        case 1:
+            return frontendIcons;
+        case 2:
+            return fullstackIcons;
+    }
+}
+
 export const getCardDescInfo=(currIndex:number)=>{
     switch(currIndex){
         case 0:
@@ -119,12 +130,12 @@ export const getRandomConfig=():config=>{
         width:50,
         height:30,
         depth:1,
-        rotateX:rand*20,
-        rotateY:rand*20,
-        rotateZ:rand*20,
+        rotateX:0,
+        rotateY:0,
+        rotateZ:0,
         x:100+rand*10,
-        y:100+rand*10,
-        z:100+rand*10
+        y:100-rand*10,
+        z:-100+rand*10
     }
 }
 
