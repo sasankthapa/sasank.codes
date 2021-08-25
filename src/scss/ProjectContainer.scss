@@ -16,9 +16,23 @@
     padding:3vmin 1vmin;
     animation: fadein 3s ease-in-out;
     cursor: grab;
+    position: relative;
     h3{
         text-align: center;
         margin-bottom:1vmin;
+    }
+    .tech{
+        position: absolute;
+        top:70%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        border:2px solid black;
+        padding:1vmin;
+        border-radius: 1vmin;
+        &:hover{
+            color:green
+
+        }
     }
 }
 

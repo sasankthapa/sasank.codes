@@ -1,9 +1,10 @@
-import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler} from 'react'
+import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler, MouseEvent} from 'react'
 import Cuboid from './purecss/Cuboid'
 import '../scss/Scene.scss'
 import '../scss/ProjectContainer.scss'
 import { getAllIcons, getCardDescInfo, getMainConfig, getRandomConfigList } from './purecss/CuboidHandler'
 import Technologies from './Technologies';
+import MainDisplay from './MainDisplay';
 
 interface ProjectContainerProps{
     currIndex:number,
@@ -13,6 +14,10 @@ interface ProjectContainerProps{
 }
 
 const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAnim,setCurrIndex, randomConfList}) => {
+    const [clientX,setClientX]=useState<number>(0);
+    const [clientY,setClientY]=useState<number>(0);
+
+    const scene=useRef<HTMLDivElement>(null);
     const plane=useRef<HTMLDivElement>(null);
 
     const classesName=["scene"];
@@ -21,26 +26,49 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         setPauseAnim(true);
     }
 
-    const mouseMoveHandler:MouseEventHandler<HTMLDivElement> = (e) => {
+    useEffect(()=>{
         if(plane.current){
-            var rotateX=((e.clientY-plane.current.offsetTop)/plane.current.offsetHeight)*20;
-            var rotateY=((e.clientX/plane.current.offsetWidth)-0.5)*20;
-            plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
+            var rotateX=((clientY-plane.current.offsetTop)/plane.current.offsetHeight)*20;
+            var rotateY=((clientX/plane.current.offsetWidth)-0.5)*20;
+            console.log('11')
+            plane.current.animate([{
+                    transform:`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`
+                },{
+                    transform:`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`
+            }])
+            //plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
         }
-    }
+    },[clientX,clientY])
 
     const mouseExitHandler:MouseEventHandler<HTMLDivElement>=()=>{
         setPauseAnim(false);
     }
 
+    function mouseMoveHandler(ev:MouseEvent){
+        setClientX(ev.clientX);
+        setClientY(ev.clientY);
+        ev.target.removeEventListener('mousemove',mouseMoveHandler)
+        if(plane.current)
+            plane.current.addEventListener('animationend',function(ev){
+                if(this===plane.current){
+                    scene.current.addEventListener('mousemove',mouseMoveHandler,{capture:true})
+                    this.removeEventListener('animationend',this)
+                }
+            })
+    }
+
+    useEffect(()=>{
+        if(scene.current){
+            console.log('here')
+            scene.current.addEventListener('mousemove',mouseMoveHandler,{capture:true})
+        }
+    },[])
+
     const touchHandler:TouchEventHandler<HTMLDivElement> = (e)=>{
         //TODO: HANDLE TOUCH
     }
-
-    const mainconfig1=getMainConfig()
     
-    return <div draggable={false} className={classesName.join(' ')}
-                onMouseMove={mouseMoveHandler}
+    return <div ref={scene} draggable={false} className={classesName.join(' ')}
                 onTouchStart={touchHandler}
                 onTouchMove={touchHandler}
                 onMouseEnter={mouseEnterHandler}
@@ -48,15 +76,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                 <div className="plane" ref={plane}>
                     {randomConfList.map((config,index)=>{
                         if(index===currIndex){
-                            return <Cuboid key={index+'Cuboid'} extraClass="paper" front={()=>{
-                                        const cardInfo=getCardDescInfo(currIndex);
-                                        if(cardInfo===undefined)
-                                            return <></>
-                                        return <div className="ProjectDesc"> 
-                                            <h3>{cardInfo.title}</h3>
-                                            <p>{cardInfo.body}</p>
-                                        </div>
-                                    }} config={mainconfig1}/>
+                            return <MainDisplay key={index+'Cuboid'} currIndex={currIndex}/>
                         }
                         return <Cuboid key={index+'Cuboid'} config={config} extraClass="paper"/>
                     })}

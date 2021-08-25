@@ -8,7 +8,6 @@ $perspective:800;
     align-items: center;
     justify-content: center;
     transform-origin: 50% 50%;
-    transition: all 3s ease;
     perspective: 1000px;
 }
 
@@ -24,7 +23,7 @@ $perspective:800;
     transform-origin: 50% 50%;
     transform-style:preserve-3d ;
     transform: rotateX(-20deg) rotateY(10deg) rotateX(90deg) translate3d(0,0,-0vmin);
-    transition: transform 0.3s ease;
+    transition: transform 1s linear;
 }
 
 .iconClass{
@@ -91,7 +90,6 @@ $perspective:800;
     perspective: 1000px;
     width:200vmin;
     height:50vmin;
-    transition: all 1s ease;
     transform-origin: 50% 50%;
     transform-style:preserve-3d;
     transform: rotateX(-90deg) translate3d(-50vmin,10vmin,-100vmin);
