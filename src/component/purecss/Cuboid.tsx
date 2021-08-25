@@ -62,18 +62,18 @@ const CuboidComponent:React.FC<CuboidComponentProps> =({config,front,extraClass}
 
     return <div className={"cuboid "+extraClass} style={{width:`${config.width}vmin`,height:`${config.depth}vmin`,
                     transform:`translate3d(${config.x}vmin,${config.y}vmin,${config.z}vmin) rotateX(${config.rotateX}deg) rotateY(${config.rotateY}deg) rotateZ(${config.rotateZ}deg)`}}>
-        <div className="pointerPassthrough" style={{...frontStyle}} >
+        <div className="pointerPassthrough face" style={{...frontStyle}} >
             {front?front():''}
         </div>
-        <div style={{...backStyle}} >
+        <div className="face" style={{...backStyle}} >
         </div>
-        <div style={{...leftStyle}} >
+        <div className="face" style={{...leftStyle}} >
         </div>
-        <div style={{...rightStyle}} >
+        <div className="face" style={{...rightStyle}} >
         </div>
-        <div style={{...upStyle}} >
+        <div className="face" style={{...upStyle}} >
         </div>
-        <div style={{...downStyle}} >
+        <div className="face" style={{...downStyle}} >
         </div>
     </div>
 }

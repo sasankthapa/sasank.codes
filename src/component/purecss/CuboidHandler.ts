@@ -17,47 +17,58 @@ type config={
 
 export type IconObject={
     Icon:IconType,
+    title:string,
     info:string[]
 }
 
 const mlIcons:IconObject[]=[{
     info:['Machine Learning','Writing scripts that automate tasks.'],
-    icon:SiPython
+    title:'Python',
+    Icon:SiPython
 },{
     info:['Creating layers of tensors and adjust weights.'],
-    icon:SiTensorflow
+    title:'Tensorflow',
+    Icon:SiTensorflow
 },{
     info:['Creating formatted reports with math formula'],
-    icon:SiLatex
+    title:'Latex',
+    Icon:SiLatex
 }]
 
 const frontendIcons:IconObject[]=[{
     info:['Create reusable and responsive components.'],
-    icon:FaReact
+    title:'React',
+    Icon:FaReact
 },{
     info:['Creating layers of tensors and adjust weights.'],
-    icon:SiHtml5
+    title:'HTML5',
+    Icon:SiHtml5
 },{
-    info:['Creating formatted reports with math formula'],
-    icon:SiSass
+    info:['Creating .scss animation and styling.'],
+    title:'Sass',
+    Icon:SiSass
 }]
 
 const fullstackIcons:IconObject[]=[{
-    info:['Creating backend servers'],
-    icon:FaNodeJs
+    info:['Creating REST APIs'],
+    title:'NodeJs',
+    Icon:FaNodeJs
 },{
     info:['Creating multiple containers to separate '],
-    icon:FaDocker
+    title:'Docker',
+    Icon:FaDocker
 },{
     info:['Complex SQL queries and relationships',
         'Creating ER diagrams'],
-    icon:SiMysql
+    title:'SQL',
+    Icon:SiMysql
 },{
     info:['Mongoose to connect through node'],
-    icon:SiMongodb
+    title:'MongoDB',
+    Icon:SiMongodb
 }]
 
-const getIcons=(data:IconObject[])=>data.map((curr)=>curr.icon)
+const getIcons=(data:IconObject[])=>data.map((curr)=>curr.Icon)
 
 const cardInfo=[
     {

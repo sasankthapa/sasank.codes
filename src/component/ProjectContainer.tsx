@@ -1,4 +1,4 @@
-import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler, MouseEvent} from 'react'
+import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler } from 'react'
 import Cuboid from './purecss/Cuboid'
 import '../scss/Scene.scss'
 import '../scss/ProjectContainer.scss'
@@ -39,13 +39,13 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         setPauseAnim(false);
     }
 
-    function mouseMoveHandler(ev:MouseEvent){
-        console.log('her')
+    function mouseMoveHandler(this:HTMLDivElement,ev:MouseEvent){
         setClientX(ev.clientX);
         setClientY(ev.clientY);
         if(plane.current)
-            plane.current.addEventListener('transitionend',function(ev){
-                scene.current.addEventListener('mousemove',mouseMoveHandler,{once:true})
+            plane.current.addEventListener('transitionend',function(){
+                if(scene.current)
+                    scene.current.addEventListener('mousemove',mouseMoveHandler,{once:true})
             },{once:true})
     }
 
@@ -64,9 +64,9 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                 onTouchMove={touchHandler}
                 onMouseEnter={mouseEnterHandler}
                 onMouseLeave={mouseExitHandler}>
-                <div className="plane" ref={plane}>
-                    {randomConfList.map((config,index)=>{
-                        return <MainDisplay currIndex={index} key={index+'Cuboid'}  extraClass="paper" isMain={currIndex===index}/>
+                <div className="plane passthrough" ref={plane}>
+                    {randomConfList.map((_,index)=>{
+                        return <MainDisplay currIndex={index} key={index+'Cuboid'} isMain={currIndex===index}/>
                     })}
                     <Technologies icons={getAllIcons()}/>
                 </div>
