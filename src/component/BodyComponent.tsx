@@ -1,11 +1,9 @@
-import React,{useState,useEffect, useCallback } from 'react';
+import React,{useState, useCallback } from 'react';
 import Writer from './Writer';
 import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
 import {ReactElement} from 'react';
 import {getRandomConfigList} from './purecss/CuboidHandler';
-
-var pauseAnima=false;
 
 const BodyComponent:React.FC<{}> = () => {
 

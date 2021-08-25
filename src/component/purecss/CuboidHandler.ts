@@ -1,7 +1,6 @@
 import {SiLatex, SiPython,SiTensorflow,SiSass,SiMysql, SiMongodb, SiHtml5,} from 'react-icons/si'
 import {FaReact,FaNodeJs,FaDocker} from 'react-icons/fa'
 import {IconType} from 'react-icons'
-import {get} from 'http'
 
 type config={
         width:number,

@@ -1,8 +1,7 @@
 import React,{MouseEventHandler, useRef, useEffect, useState, TouchEventHandler } from 'react'
-import Cuboid from './purecss/Cuboid'
 import '../scss/Scene.scss'
 import '../scss/ProjectContainer.scss'
-import { getAllIcons, getCardDescInfo, getMainConfig, getRandomConfigList } from './purecss/CuboidHandler'
+import { getAllIcons } from './purecss/CuboidHandler'
 import Technologies from './Technologies';
 import MainDisplay from './MainDisplay';
 

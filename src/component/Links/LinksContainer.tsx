@@ -1,13 +1,6 @@
 import React from 'react';
 import Link from './Links';
 
-interface LinkConfig{
-    name:string,
-    href:string,
-    extraClasses:string,
-    image?:string
-}
-
 const LinksContainer:React.FC<{}> = () =>{
 
     const linkItems=[

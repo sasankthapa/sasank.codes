@@ -1,7 +1,5 @@
 import React from 'react'
 import '../scss/Header.scss'
-import image from '../assets/profile.jpg'
-import Writer from './Writer'
 import LinksContainer from './Links/LinksContainer'
 
 const HeaderComponent:React.FC<{}>= () => {
@@ -15,8 +13,6 @@ const HeaderComponent:React.FC<{}>= () => {
             <h1>Sasank Thapa</h1>
         </div>
         <LinksContainer />
-        {//<Writer extraClass="Name" values={['Sasank Thapa']} changes={false}/>
-        }
     </>
 }
 

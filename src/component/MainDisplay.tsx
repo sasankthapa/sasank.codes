@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useState} from 'react'
+import React, {useState} from 'react'
 import {getMainConfig,getCardDescInfo,getRandomConfig,getIconsWithInfo} from './purecss/CuboidHandler'
 import Cuboid from './purecss/Cuboid'
 
