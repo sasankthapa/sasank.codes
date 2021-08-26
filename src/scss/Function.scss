@@ -13,19 +13,19 @@
     grid-row:1/1;
 }
 
-.Projects{
+.ProjectsGrid{
     grid-column:1/6;
     grid-row:2/6;
 }
 
 @include media(">450px" , "<=800px"){
-    .Projects{
+    .ProjectsGrid{
         grid-column:1/6;
         grid-row:2/6;
     }
 }
 @include media(">800px" ){
-    .Projects{
+    .ProjectsGrid{
         grid-column:1/13;
         grid-row:3/7;
     }

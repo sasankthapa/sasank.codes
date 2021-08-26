@@ -37,7 +37,7 @@ const BodyComponent:React.FC<{}> = () => {
     }
 
     const createOverFlowContainer = (element:ReactElement) => {
-        return <div className={"overflowH animateAfter Projects "+colorClasses[currIndex]}>
+        return <div className={"overflowH animateAfter ProjectsGrid Projects "+colorClasses[currIndex]}>
             {element}
         </div>
     }
@@ -50,7 +50,8 @@ const BodyComponent:React.FC<{}> = () => {
             'Frontend Engineer',
             'Fullstack Developer']
         }/>
-        {createOverFlowContainer(<ProjectContainer randomConfList={randomConfList} currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
+        {createOverFlowContainer(<ProjectContainer extraClass={colorClasses[currIndex]} randomConfList={randomConfList} currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
+        <div className=" background_threeD ProjectsGrid"></div>
     </>
 }
 

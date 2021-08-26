@@ -1,30 +1,29 @@
 @import "Function";
 @import "common";
 
-.ProjectContainer{
-    width: 300%;
-    height:100%;
-    display: flex;
-    position: absolute;
-    transition:all 1s ease-in;
-}
-
 .ProjectDesc{
     transform-style: preserve-3d;
     pointer-events: all;
     width:100%;
     height:100%;
-    border: 3px solid black;
+    border: 7px solid black;
     padding:3vmin 1vmin;
     animation: fadein 3s ease-in-out;
     cursor: grab;
     position: relative;
     transition: all 1s ease;
     h3{
-        text-align: center;
+        text-align: left;
         margin-bottom:1vmin;
-        &:hover{
-            color: red;
+        position: relative;
+        &:after{
+            content:'';
+            position: absolute;
+            width:35%;
+            height:1px;
+            top:100%;
+            left:0;
+            background-color: black;
         }
     }
     .tech{
@@ -83,13 +82,27 @@
         background-color: white;
         transition: all 1s ease;
         transform-origin: 50% 50%;
-        &:hover{
-            transform:rotateX(40deg) translate3d(0,0,3vmin);
-        }
+        font-size: 1vmin;
         .icon{
             width:5vmin;
             height:5vmin;
-            color:black
+            color:black;
+            transition: inherit;
+        }
+        p{
+            font-size: 0.4rem;
+            transition: inherit;
+        }
+        &:hover{
+            width:15vmin;
+            font-size: 0.2rem;
+            .icon{
+                width:3vmin;
+                height:3vmin;
+            }
+            p{
+                font-size: 0.8rem;
+            }
         }
     }
     .show1{

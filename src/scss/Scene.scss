@@ -1,3 +1,4 @@
+@import 'common';
 $perspective:800;
 
 .scene{
@@ -43,7 +44,7 @@ $perspective:800;
 }
 
 .paper{
-    $color:white;
+    $color:#FFF5EB;
     .face:nth-of-type(1){
         transition: all 1s ease;
         background-color: $color;
@@ -52,9 +53,10 @@ $perspective:800;
         background-color: darken($color: $color, $amount: 20%);
     }
     .face:nth-of-type(4),.face:nth-of-type(6){
-        background-color: darken($color: $color, $amount: 50%);
+        background-color: #EDEDED;
     }
 }
+
 
 .bgBlack{
     .face:nth-of-type(1){
@@ -70,8 +72,8 @@ $perspective:800;
 }
 
 .UIbutton{
-    width:5vmin;
-    height:5vmin;
+    width:10vmin;
+    height:10vmin;
     cursor: pointer;
     transform-style:preserve-3d ;
     position: absolute;
@@ -80,7 +82,7 @@ $perspective:800;
     left:50%;
     transition: all 1s ease;
     clip-path: polygon(39% 38%, 100% 50%, 100% 60%, 41% 68%, 60% 100%, 0 51%, 59% 0);
-    background: linear-gradient(to left, lightslategray, lightblue, lightcoral,lightslategray);
+    background: linear-gradient(to right, lightslategray,lightslategray, lightblue, lightcoral,lightslategray);
     background-size: 400% 100%;
     background-position: translate(-100%,0);
 

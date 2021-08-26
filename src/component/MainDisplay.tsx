@@ -15,7 +15,8 @@ const MainDisplay:React.FC<MainDisplayProps> = ({currIndex,isMain}) => {
         if(val){
             setShowIcons(true)
             return setMainConfig(config=>{
-                config['rotateX']=70
+                config['rotateX']=90
+                config['z']=-5
                 return config
             })
         }
@@ -29,7 +30,7 @@ const MainDisplay:React.FC<MainDisplayProps> = ({currIndex,isMain}) => {
                     const iconsInfo=getIconsWithInfo(currIndex);
                     if(cardInfo===undefined || iconsInfo===undefined)
                         return <></>
-                    return <div className="ProjectDesc"> 
+                    return <div draggable={false} className="ProjectDesc"> 
                         <h3>{cardInfo.title}</h3>
                         <p>{cardInfo.body}</p>
                         <h3 onClick={()=>handleMouseClick(true)} className="tech">TECHNOLOGY</h3>

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../scss/Header.scss'
 import LinksContainer from './Links/LinksContainer'
 
 const HeaderComponent:React.FC<{}>= () => {
+    const [removeH,setRemoveH]=useState(false);
+
    return <>
         <div className="Logo">
             <div className="imgcontainer">
@@ -10,7 +12,19 @@ const HeaderComponent:React.FC<{}>= () => {
             </div>
         </div>
         <div className="nametitle">
-            <h1>Sasank Thapa</h1>
+            <span>S</span>
+            <span>a</span>
+            <span>s</span>
+            <span className={removeH?"removedH querkH":"querkH"}><span className="hoverInfo">Although Sashank is a lovely name, I prefer <span className="removeH" onClick={()=>setRemoveH(true)}>Sasank</span> as it vocally represents my name better.</span>h</span>
+            <span>a</span>
+            <span>n</span>
+            <span>k</span>
+            <span>&nbsp;</span>
+            <span>T</span>
+            <span>h</span>
+            <span>a</span>
+            <span>p</span>
+            <span>a</span>
         </div>
         <LinksContainer />
     </>

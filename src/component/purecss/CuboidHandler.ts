@@ -21,17 +21,13 @@ export type IconObject={
 }
 
 const mlIcons:IconObject[]=[{
-    info:['Machine Learning','Writing scripts that automate tasks.'],
+    info:['Data Preprocessing','Machine Learing','Data Visualization'],
     title:'Python',
     Icon:SiPython
 },{
-    info:['Creating layers of tensors and adjust weights.'],
+    info:['Created layers of tensors and adjust weights.'],
     title:'Tensorflow',
     Icon:SiTensorflow
-},{
-    info:['Creating formatted reports with math formula'],
-    title:'Latex',
-    Icon:SiLatex
 }]
 
 const frontendIcons:IconObject[]=[{
