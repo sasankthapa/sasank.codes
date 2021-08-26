@@ -2,29 +2,31 @@
 @import "common";
 
 .ProjectDesc{
-    transform-style: preserve-3d;
     pointer-events: all;
     width:100%;
     height:100%;
     border: 7px solid black;
     padding:3vmin 1vmin;
     animation: fadein 3s ease-in-out;
-    cursor: grab;
+    cursor: crosshair;
     position: relative;
     transition: all 1s ease;
-    h3{
+    .Heading{
         text-align: left;
         margin-bottom:1vmin;
         position: relative;
         &:after{
             content:'';
             position: absolute;
-            width:35%;
+            width:100%;
             height:1px;
             top:100%;
             left:0;
             background-color: black;
         }
+    }
+    &:hover{
+
     }
     .tech{
         position: absolute;
@@ -33,9 +35,10 @@
         transform: translate(-50%,-50%);
         border:2px solid black;
         padding:1vmin;
-        border-radius: 1vmin;
+        border-radius: 2vmin;
         transition: all 0.3s ease;
         &:hover{
+            font-size: 3vmin;
             color:green;
             background:black;
         }
@@ -190,15 +193,15 @@
     transform: translateX(-66.66%);
 }
 
-.coral{
+.buttonColor0{
     background: lightcoral;
 }
 
-.sblue{
+.buttonColor1{
     background: lightsteelblue;
 }
 
-.gray{
+.buttonColor2{
     background: lightslategray;
 }
 

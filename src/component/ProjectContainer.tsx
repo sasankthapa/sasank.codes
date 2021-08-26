@@ -70,8 +70,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                     })}
                     <Technologies icons={getAllIcons()}/>
                 </div>
-        <div className="left UIbutton" onClick={()=>{setCurrIndex((currIndex===0?currIndex+2:currIndex-1))}} ></div>
-        <div className="right UIbutton" onClick={()=>{setCurrIndex((currIndex+1)%3)}}></div>
+        <div className={`left UIbutton buttonColor${currIndex}`} onClick={()=>{setCurrIndex((currIndex===0?currIndex+2:currIndex-1))}} ></div>
+        <div className={`right UIbutton buttonColor${currIndex}`} onClick={()=>{setCurrIndex((currIndex+1)%3)}}></div>
     </div>
 }
 

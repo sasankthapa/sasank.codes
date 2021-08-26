@@ -31,13 +31,13 @@ const MainDisplay:React.FC<MainDisplayProps> = ({currIndex,isMain}) => {
                     if(cardInfo===undefined || iconsInfo===undefined)
                         return <></>
                     return <div draggable={false} className="ProjectDesc"> 
-                        <h3>{cardInfo.title}</h3>
+                        <h3 className="Heading">{cardInfo.title}</h3>
                         <p>{cardInfo.body}</p>
                         <h3 onClick={()=>handleMouseClick(true)} className="tech">TECHNOLOGY</h3>
                         {showIcons?<h3 onClick={()=>handleMouseClick(false)} className="close">CLOSE</h3>:''}
                         <div className={showIcons?"iconsContainer show1":"iconsContainer"}>
                             {iconsInfo.map(({Icon,title,info})=>{
-                                return <div className="iconholder">
+                                return <div key={title} className="iconholder">
                                     <Icon className="icon"/>
                                     <h3>{title}</h3>
                                     {info.map((text)=><p>{text}</p>)}

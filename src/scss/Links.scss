@@ -34,9 +34,9 @@
 }
 
 .Disabled{
-    font-size:1em;
     color:#808080;
-    cursor: not-allowed;
-    background-color: #525252;
+    a{
+        cursor: not-allowed;
+    }
 }
 

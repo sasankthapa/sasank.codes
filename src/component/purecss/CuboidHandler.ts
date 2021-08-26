@@ -74,14 +74,13 @@ const cardInfo=[
     },
     {
         'title':'Developer at OED (Open Energy Dashboard)',
-        'body':'Added a integral interface for selecting timezone for each meter as a part of a fix ' + 
+        'body':'Added an integral interface for selecting timezone for each meter as a part of a fix ' + 
             'for a long pending issue.',
         'icons':getIcons(frontendIcons)
     },
     {
-        'title':'Nepal Covid Location',
-        'body':'Analyzed and improved machine learning models creating a classification model for ' + 
-            'liver disease that had 16% improvement compared to previous models on a generalized dataset.',
+        'title':'Nepal Covid Locator',
+        'body':'This is a webpage I built in the summer of 2020 to track covid in my home country Nepal.',
         'icons':getIcons(fullstackIcons)
     }
 ];
@@ -121,7 +120,7 @@ export const getMainConfig=()=>{
         width:60,
         height:40,
         depth:2,
-        rotateX:20,
+        rotateX:0,
         rotateY:0,
         rotateZ:0,
         x:20,
