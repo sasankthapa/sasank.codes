@@ -1,4 +1,5 @@
 @import 'common';
+@import 'include-media';
 $perspective:800;
 
 .scene{
@@ -40,7 +41,7 @@ $perspective:800;
     font-size:1rem;
     box-sizing: border-box;
     transform-origin: 50% 50%;
-    transition: all 1s linear;
+    transition: all 1s ease;
 }
 
 .paper{
@@ -106,6 +107,10 @@ $perspective:800;
     background: black;
     padding: 1vmin;
     position: absolute;
+    @include media("<600px"){
+        width:2vmin;
+        height:2vmin;
+    }
 }
 
 .iconstars{

@@ -15,7 +15,7 @@ const HeaderComponent:React.FC<{}>= () => {
             <span>S</span>
             <span>a</span>
             <span>s</span>
-            <span className={removeH?"removedH querkH":"querkH"}><span className="hoverInfo">Although Sashank is a lovely name, I prefer <span className="removeH" onClick={()=>setRemoveH(true)}>Sasank</span> as it vocally represents my name better.</span>h</span>
+            <span className={removeH?"removedH querkH":"querkH"}><span className="hoverInfo">Although Sashank is a lovely name, I prefer <span className="removeH" onClick={()=>setRemoveH(true)}>Sasank</span> as it vocally expresses my name better.</span>h</span>
             <span>a</span>
             <span>n</span>
             <span>k</span>

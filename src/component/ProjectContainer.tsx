@@ -26,7 +26,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
 
     useEffect(()=>{
         if(scene.current){
-            var rotateX=((clientY-scene.current.offsetTop)/scene.current.offsetHeight)*20;
+            var rotateX=((clientY-scene.current.offsetTop)/scene.current.offsetHeight)*10;
             var rotateY=((clientX-scene.current.offsetWidth/2)/(scene.current.offsetWidth/2))*20;
             console.log(clientX,scene.current.offsetWidth)
             console.log(rotateX,rotateY)
@@ -65,8 +65,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
                 onMouseEnter={mouseEnterHandler}
                 onMouseLeave={mouseExitHandler}>
                 <div className="plane passthrough" ref={plane}>
-                    {randomConfList.map((_,index)=>{
-                        return <MainDisplay currIndex={index} key={index+'Cuboid'} isMain={currIndex===index}/>
+                    {randomConfList.map((config,index)=>{
+                        return <MainDisplay config={config} currIndex={index} key={index+'Cuboid'} isMain={currIndex===index}/>
                     })}
                     <Technologies icons={getAllIcons()}/>
                 </div>

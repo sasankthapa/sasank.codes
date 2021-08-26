@@ -1,8 +1,8 @@
-import {SiLatex, SiPython,SiTensorflow,SiSass,SiMysql, SiMongodb, SiHtml5,} from 'react-icons/si'
+import {SiPython,SiTensorflow,SiSass,SiMysql, SiMongodb, SiHtml5,} from 'react-icons/si'
 import {FaReact,FaNodeJs,FaDocker} from 'react-icons/fa'
 import {IconType} from 'react-icons'
 
-type config={
+export type config={
         width:number,
         height:number,
         depth:number,
@@ -68,19 +68,21 @@ const getIcons=(data:IconObject[])=>data.map((curr)=>curr.Icon)
 const cardInfo=[
     {
         'title':'Pakula Biomedical Scolars: Using Machine Learning for Liver Disease Classification',
-        'body':'Analyzed and improved machine learning models creating a classification model for ' + 
-            'liver disease that had 16% improvement compared to previous models on a generalized dataset.',
+        'body':['Analyzed and improved machine learning models developing a diagnostic model for ' + 
+            'liver disease with 16% improvement compared to previous models on a generalized dataset.',
+        ''],
         'icons':getIcons(mlIcons)
     },
     {
         'title':'Developer at OED (Open Energy Dashboard)',
-        'body':'Added an integral interface for selecting timezone for each meter as a part of a fix ' + 
-            'for a long pending issue.',
+        'body':['Added an integral interface for selecting timezone for each meter as a part of a fix ' + 
+            'for a long pending issue.','Develop reusable UI components using typescript, react and redux.'],
         'icons':getIcons(frontendIcons)
     },
     {
-        'title':'Nepal Covid Locator',
-        'body':'This is a webpage I built in the summer of 2020 to track covid in my home country Nepal.',
+        'title':'Fullstack Apps',
+        'body':['Nepal Covid Locator: My first react webpage I developed in the summer of 2020 to track covid in my home country Nepal.',
+        '中文Flashcards: A flashcard app I developed for studying chinese. (Chinese relates 3 things, so normal flashcards don\'t work)'],
         'icons':getIcons(fullstackIcons)
     }
 ];
@@ -115,7 +117,20 @@ export const getCardDescInfo=(currIndex:number)=>{
     }
 }
 
-export const getMainConfig=()=>{
+export const getMainConfig=(width:number)=>{
+    if(width < 600){
+        return {
+            width:60,
+            height:90,
+            depth:2,
+            rotateX:0,
+            rotateY:0,
+            rotateZ:0,
+            x:20,
+            y:50,
+            z:0
+        }
+    }
     return {
         width:60,
         height:40,
@@ -127,6 +142,40 @@ export const getMainConfig=()=>{
         y:50,
         z:0
     }
+}
+
+export const getConfigs=()=>{
+    return [{
+        width:60,
+        height:40,
+        depth:2,
+        rotateX:0,
+        rotateY:0,
+        rotateZ:0,
+        x:-300,
+        y:0,
+        z:20
+    },{
+        width:60,
+        height:40,
+        depth:2,
+        rotateX:0,
+        rotateY:0,
+        rotateZ:0,
+        x:250,
+        y:0,
+        z:20
+    },{
+        width:60,
+        height:40,
+        depth:2,
+        rotateX:0,
+        rotateY:0,
+        rotateZ:0,
+        x:300,
+        y:0,
+        z:20
+    }]
 }
 
 export const getRandomConfig=():config=>{

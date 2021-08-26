@@ -3,7 +3,7 @@ import Writer from './Writer';
 import ProjectContainer from './ProjectContainer'
 import '../scss/Body.scss';
 import {ReactElement} from 'react';
-import {getRandomConfigList} from './purecss/CuboidHandler';
+import {getConfigs} from './purecss/CuboidHandler';
 
 const BodyComponent:React.FC<{}> = () => {
 
@@ -28,7 +28,7 @@ const BodyComponent:React.FC<{}> = () => {
         </div>
     }
 
-    const randomConfList=getRandomConfigList(3);
+    const randomConfList=getConfigs();
 
     return <>
         <Writer currIndex={currIndex} extraClass={"desc animateAfter "+colorClasses[currIndex]} values={
