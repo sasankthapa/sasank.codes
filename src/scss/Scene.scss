@@ -24,7 +24,7 @@ $perspective:800;
     width:100vmin;
     transform-origin: 50% 50%;
     transform-style:preserve-3d ;
-    transform: rotateX(-20deg) rotateY(10deg) rotateX(90deg) translate3d(0,0,-0vmin);
+    //transform: rotateX(-20deg) rotateY(10deg) rotateX(90deg) translate3d(0,0,-20vmin);
     transition: transform 0.1s linear;
     background: none;
     pointer-events: none;

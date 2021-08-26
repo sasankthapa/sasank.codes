@@ -132,7 +132,7 @@ export const getMainConfig=(width:number)=>{
             rotateZ:0,
             x:20,
             y:50,
-            z:0
+            z:45
         }
     }
     return {
@@ -144,7 +144,7 @@ export const getMainConfig=(width:number)=>{
         rotateZ:0,
         x:20,
         y:50,
-        z:0
+        z:20
     }
 }
 
@@ -157,7 +157,7 @@ export const getConfigs=()=>{
         rotateY:0,
         rotateZ:0,
         x:-300,
-        y:0,
+        y:10,
         z:20
     },{
         width:60,
@@ -167,7 +167,7 @@ export const getConfigs=()=>{
         rotateY:0,
         rotateZ:0,
         x:250,
-        y:0,
+        y:10,
         z:20
     },{
         width:60,
@@ -177,7 +177,7 @@ export const getConfigs=()=>{
         rotateY:0,
         rotateZ:0,
         x:300,
-        y:0,
+        y:10,
         z:20
     }]
 }

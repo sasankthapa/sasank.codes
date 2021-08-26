@@ -17,7 +17,7 @@ const MainDisplay:React.FC<MainDisplayProps> = ({currIndex,isMain,config}) => {
             setShowIcons(true)
             return setMainConfig(config=>{
                 config['rotateX']=80
-                config['z']=-5
+                config['z']=10
                 return config
             })
         }
@@ -50,7 +50,7 @@ const MainDisplay:React.FC<MainDisplayProps> = ({currIndex,isMain,config}) => {
                         {cardInfo.body.map((phrase)=>{
                             return <p key={phrase.slice(0,5)} className="body">{phrase}</p>
                         })}
-                        {!showIcons?<h3 onClick={()=>handleMouseClick(true)} className="tech">TECHNOLOGIES</h3>:
+                        {!showIcons?<div onClick={()=>handleMouseClick(true)} className="tech">TECHNOLOGIES</div>:
                         <h3 onClick={()=>handleMouseClick(false)} className="close">CLOSE</h3>}
                         <div className={showIcons?"iconsContainer show1":"iconsContainer"}>
                             {iconsInfo.map(({Icon,title,info})=>{

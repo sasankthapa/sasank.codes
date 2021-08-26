@@ -30,7 +30,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
             var rotateY=((clientX-scene.current.offsetWidth/2)/(scene.current.offsetWidth/2))*20;
             console.log(clientX,scene.current.offsetWidth)
             console.log(rotateX,rotateY)
-            if(plane.current) plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,0)`;
+            if(plane.current) plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,-20vmin)`;
         }
     },[clientX,clientY])
 
@@ -59,7 +59,7 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         //TODO: HANDLE TOUCH
     }
     
-    return <div ref={scene} draggable={false} className={"scene "+extraClass}
+    return <div ref={scene} draggable={false} className={"scene passthrough "+extraClass}
                 onTouchStart={touchHandler}
                 onTouchMove={touchHandler}
                 onMouseEnter={mouseEnterHandler}
