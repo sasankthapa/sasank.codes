@@ -15,9 +15,9 @@ const LinksContainer:React.FC<{}> = () =>{
             extraClasses:'Linkedin ',
         },
         {
-            name:'Projects',
-            href:'https://sasank.codes/projects',
-            extraClasses:'Blog Disabled ',
+            name:'Resume',
+            href:'https://sasank.codes/assets/resume.pdf',
+            extraClasses:'',
         }
     ]
 

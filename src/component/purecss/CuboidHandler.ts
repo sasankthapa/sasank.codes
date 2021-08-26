@@ -1,4 +1,4 @@
-import {SiPython,SiTensorflow,SiSass,SiMysql, SiMongodb, SiHtml5,} from 'react-icons/si'
+import {SiTypescript,SiPython,SiTensorflow,SiSass,SiMysql, SiMongodb, SiHtml5,} from 'react-icons/si'
 import {FaReact,FaNodeJs,FaDocker} from 'react-icons/fa'
 import {IconType} from 'react-icons'
 
@@ -35,7 +35,11 @@ const frontendIcons:IconObject[]=[{
     title:'React',
     Icon:FaReact
 },{
-    info:['Creating layers of tensors and adjust weights.'],
+    info:['I 💖 Typescript.'],
+    title:'Typescript',
+    Icon:SiTypescript
+},{
+    info:[''],
     title:'HTML5',
     Icon:SiHtml5
 },{
