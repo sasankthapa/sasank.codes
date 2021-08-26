@@ -60,6 +60,9 @@
         top:80%;
         left:50%;
         font-size: 2vmin;
+        @include media("<600px"){
+            font-size: 6vmin;
+        }
         transform: translate(-50%,-50%);
         border:2px solid black;
         cursor: pointer;
@@ -98,7 +101,6 @@
         background-color: white;
         transition: all 1s ease;
         transform-origin: 50% 50%;
-        font-size: 1vmin;
         .icon{
             width:5vmin;
             height:5vmin;
@@ -110,12 +112,7 @@
             transition: inherit;
         }
         &:hover{
-            width:15vmin;
-            font-size: 0.2rem;
-            .icon{
-                width:3vmin;
-                height:3vmin;
-            }
+            width:30vmin;
             p{
                 font-size: 0.8rem;
             }
@@ -148,14 +145,14 @@
     }
 }
 
-.buttonColor0{
+.buttonColor2{
     background: lightcoral;
 }
 
 .buttonColor1{
-    background: lightsteelblue;
+    background: lightslategray;
 }
 
-.buttonColor2{
-    background: lightslategray;
+.buttonColor0{
+    background: lightsteelblue;
 }

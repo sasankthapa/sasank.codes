@@ -8,7 +8,7 @@ import {getConfigs} from './purecss/CuboidHandler';
 const BodyComponent:React.FC<{}> = () => {
 
     const [currIndex,setCurrIndex]=useState<number>(0);
-    const colorClasses=['coralBG','sblueBG','grayBG'];
+    const colorClasses=['sblueBG','grayBG','coralBG'];
     const [,setPauseAnim]=useState<boolean>(false);
 
     useEffect(()=>{
@@ -19,7 +19,7 @@ const BodyComponent:React.FC<{}> = () => {
                 }
                 return prev
             })
-        },5000)
+        },8000)
     },[])
 
     const createOverFlowContainer = (element:ReactElement) => {
@@ -32,9 +32,9 @@ const BodyComponent:React.FC<{}> = () => {
 
     return <>
         <Writer currIndex={currIndex} extraClass={"desc animateAfter "+colorClasses[currIndex]} values={
-            ['Aspiring ML Engineer',
+            ['Fullstack Developer',
             'Frontend Engineer',
-            'Fullstack Developer']
+            'Aspiring ML Engineer']
         }/>
         {createOverFlowContainer(<ProjectContainer extraClass={colorClasses[currIndex]} randomConfList={randomConfList} currIndex={currIndex} setPauseAnim={setPauseAnim} setCurrIndex={setCurrIndex}/>)}
         <div className=" background_threeD ProjectsGrid"></div>

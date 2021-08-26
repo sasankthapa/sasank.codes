@@ -35,7 +35,7 @@ const frontendIcons:IconObject[]=[{
     title:'React',
     Icon:FaReact
 },{
-    info:['I 💖 Typescript.'],
+    info:['💖💖Typescript💖💖'],
     title:'Typescript',
     Icon:SiTypescript
 },{
@@ -43,17 +43,17 @@ const frontendIcons:IconObject[]=[{
     title:'HTML5',
     Icon:SiHtml5
 },{
-    info:['Creating .scss animation and styling.'],
+    info:['Creating reusable css code through sass functions.'],
     title:'Sass',
     Icon:SiSass
 }]
 
 const fullstackIcons:IconObject[]=[{
-    info:['Creating REST APIs'],
+    info:['Creating REST APIs and backend servers'],
     title:'NodeJs',
     Icon:FaNodeJs
 },{
-    info:['Creating multiple containers to separate '],
+    info:['Creating and deploying containers through compose.'],
     title:'Docker',
     Icon:FaDocker
 },{
@@ -62,7 +62,7 @@ const fullstackIcons:IconObject[]=[{
     title:'SQL',
     Icon:SiMysql
 },{
-    info:['Mongoose to connect through node'],
+    info:['Backend database for most projects.'],
     title:'MongoDB',
     Icon:SiMongodb
 }]
@@ -71,11 +71,10 @@ const getIcons=(data:IconObject[])=>data.map((curr)=>curr.Icon)
 
 const cardInfo=[
     {
-        'title':'Pakula Biomedical Scolars: Using Machine Learning for Liver Disease Classification',
-        'body':['Analyzed and improved machine learning models developing a diagnostic model for ' + 
-            'liver disease with 16% improvement compared to previous models on a generalized dataset.',
-        ''],
-        'icons':getIcons(mlIcons)
+        'title':'Fullstack Apps',
+        'body':['Nepal Covid Locator: My first react webpage I developed in the summer of 2020 to track covid in my home country Nepal.',
+        '中文Flashcards: A flashcard app I developed for studying chinese. (Chinese relates 3 things, so normal flashcards don\'t work)'],
+        'icons':getIcons(fullstackIcons)
     },
     {
         'title':'Developer at OED (Open Energy Dashboard)',
@@ -84,11 +83,12 @@ const cardInfo=[
         'icons':getIcons(frontendIcons)
     },
     {
-        'title':'Fullstack Apps',
-        'body':['Nepal Covid Locator: My first react webpage I developed in the summer of 2020 to track covid in my home country Nepal.',
-        '中文Flashcards: A flashcard app I developed for studying chinese. (Chinese relates 3 things, so normal flashcards don\'t work)'],
-        'icons':getIcons(fullstackIcons)
-    }
+        'title':'Pakula Biomedical Scholars: Using Machine Learning for Liver Disease Classification',
+        'body':['Analyzed and improved machine learning models developing a diagnostic model for ' + 
+            'liver disease with 16% improvement compared to previous models on a generalized dataset.',
+        ''],
+        'icons':getIcons(mlIcons)
+    },
 ];
 
 export const getAllIcons=()=>{
@@ -102,11 +102,11 @@ export const getAllIcons=()=>{
 export const getIconsWithInfo=(currIndex:number)=>{
     switch(currIndex){
         case 0:
-            return mlIcons;
+            return fullstackIcons;
         case 1:
             return frontendIcons;
         case 2:
-            return fullstackIcons;
+            return mlIcons;
     }
 }
 

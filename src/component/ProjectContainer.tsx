@@ -28,9 +28,8 @@ const ProjectContainer:React.FC<ProjectContainerProps> = ({currIndex,setPauseAni
         if(scene.current){
             var rotateX=((clientY-scene.current.offsetTop)/scene.current.offsetHeight)*10;
             var rotateY=((clientX-scene.current.offsetWidth/2)/(scene.current.offsetWidth/2))*20;
-            console.log(clientX,scene.current.offsetWidth)
-            console.log(rotateX,rotateY)
-            if(plane.current) plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,-20vmin)`;
+            var translateZ=window.innerWidth < 600?45:20
+            if(plane.current) plane.current.style.transform=`rotateX(-${rotateX}deg) rotateY(${rotateY}deg) rotateX(90deg) translate3d(-0%,0,-${translateZ}vmin)`;
         }
     },[clientX,clientY])
 
