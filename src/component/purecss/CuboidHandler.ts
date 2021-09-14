@@ -72,21 +72,22 @@ const getIcons=(data:IconObject[])=>data.map((curr)=>curr.Icon)
 const cardInfo=[
     {
         'title':'Fullstack Apps',
-        'body':['Nepal Covid Locator: My first react webpage I developed in the summer of 2020 to track covid in my home country Nepal.',
-        '中文Flashcards: A flashcard app I developed for studying chinese. (Chinese relates 3 things, so normal flashcards don\'t work)'],
+        'body':['Nepal Covid Locator(nepalcovidlocator.com): My first react webpage I developed in the summer of 2020 to track covid in my home country Nepal.',
+        '中文Flashcards: A flashcard app I developed for studying chinese.'],
         'icons':getIcons(fullstackIcons)
     },
     {
         'title':'Developer at OED (Open Energy Dashboard)',
-        'body':['Added an integral interface for selecting timezone for each meter as a part of a fix ' + 
-            'for a long pending issue.','Develop reusable UI components using typescript, react and redux.'],
+        'body':['Added an integral interface for selecting and editing timezone using promise based requests.' 
+            ,'Develop reusable UI components using typescript, react and redux.','Create tests using Mocha.',
+            'Debug a travis-ci integration issue that prevented testing on travis-ci servers'],
         'icons':getIcons(frontendIcons)
     },
     {
         'title':'Pakula Biomedical Scholars: Using Machine Learning for Liver Disease Classification',
-        'body':['Analyzed and improved machine learning models developing a diagnostic model for ' + 
-            'liver disease with 16% improvement compared to previous models on a generalized dataset.',
-        ''],
+        'body':['Developed machine learning models to classify liver disease stages.' , 
+            'Optimized model parameters with 5% improvement over initial models and 16% improvement over previous models for a generalized dataset.',
+        ],
         'icons':getIcons(mlIcons)
     },
 ];
@@ -102,22 +103,22 @@ export const getAllIcons=()=>{
 export const getIconsWithInfo=(currIndex:number)=>{
     switch(currIndex){
         case 0:
-            return fullstackIcons;
+            return mlIcons;
         case 1:
             return frontendIcons;
         case 2:
-            return mlIcons;
+            return fullstackIcons;
     }
 }
 
 export const getCardDescInfo=(currIndex:number)=>{
     switch(currIndex){
         case 0:
-            return cardInfo[0]
+            return cardInfo[2]
         case 1:
             return cardInfo[1]
         case 2:
-            return cardInfo[2]
+            return cardInfo[0]
     }
 }
 
