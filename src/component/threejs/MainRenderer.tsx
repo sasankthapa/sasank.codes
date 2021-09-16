@@ -2,6 +2,7 @@ import React, {useState,useRef} from 'react'
 import { Canvas, MeshProps, SpriteProps, ThreeEvent, useFrame, useLoader } from '@react-three/fiber'
 import { BoxGeometry, Sprite, Texture, TextureLoader, Vector3} from 'three'
 import characterImage from '../../assets/profile.jpg'
+import Character from './Assets/Player';
 
 interface PlaneProps extends MeshProps{
     updateMouse:(pos:Vector3)=>void;
@@ -12,7 +13,6 @@ const Plane:React.FC<PlaneProps>=({updateMouse,...other})=>{
 
     const handleMouseMove=(e:ThreeEvent<PointerEvent>)=>{
         if(ref.current){
-            console.log(e);
             updateMouse(e.point);
         }
     }
@@ -23,7 +23,7 @@ const Plane:React.FC<PlaneProps>=({updateMouse,...other})=>{
     </mesh>
 }
 
-const Player=(props:SpriteProps)=>{
+const SpriteCaster=(props:SpriteProps)=>{
     const ref=useRef<Sprite>(null);
     
     const texture =useLoader(TextureLoader,characterImage )
@@ -42,8 +42,8 @@ const App:React.FC<{}> = () => {
     }
 
   return <Canvas raycaster={{}} className="ProjectsGrid" camera={{ position: [0,10,10] }}>
-        <Player scale={[10,10,1]} position={pointerPos}/>
-        <Plane position={[0,-10,-20]} scale={[50,1,50]} updateMouse={updateMouse}/>
+        <Character scale={[1,1,1]} mouseCoords={pointerPos} position={pointerPos} />
+        <Plane position={[0,0,0]} scale={[50,1,50]} updateMouse={updateMouse}/>
         <pointLight position={[10, 10, 10]} />
   </Canvas>
 }
