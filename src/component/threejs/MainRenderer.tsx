@@ -9,7 +9,7 @@ interface PlaneProps extends MeshProps{
 }
 
 const Plane:React.FC<PlaneProps>=({updateMouse,...other})=>{
-    const ref=useRef<BoxGeometry>(null);
+    const ref=useRef<MeshProps>(null);
 
     const handleMouseMove=(e:ThreeEvent<PointerEvent>)=>{
         if(ref.current){
@@ -18,8 +18,8 @@ const Plane:React.FC<PlaneProps>=({updateMouse,...other})=>{
         }
     }
 
-    return <mesh {...other} onPointerMove={handleMouseMove} ref={ref}>
-        <boxGeometry />
+    return <mesh {...other} ref={ref} onPointerMove={handleMouseMove} >
+        <boxGeometry args={[50,1,50]}/>
         <meshStandardMaterial color="orange"/>
     </mesh>
 }
@@ -50,11 +50,11 @@ const App:React.FC<{}> = () => {
       setDimensions(new Vector2(state.size.width,state.size.height));
   }}
 
-    raycaster={{}} className="ProjectsGrid" camera={{ position: [0,10,10] }}>
-        <Character scale={[1,1,1]} mouseCoords={pointerPos} />
-        <SpriteCaster position={pointerPos}/>
-        <Plane position={[0,0,0]} scale={[100,1,100]} updateMouse={updateMouse}/>
-        <pointLight position={[10, 10, 10]} />
+    raycaster={{}} className="ProjectsGrid" camera={{ position: [0,0,-10], fov:60 }}>
+        <ambientLight intensity={0.8}/>
+        <spotLight position={[0,2,0]} />
+        <Plane position={[0,-5,0]} updateMouse={updateMouse}/>
+        <Character mouseCoords={pointerPos} />
   </Canvas>
 }
 

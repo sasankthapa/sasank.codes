@@ -39,10 +39,14 @@ const Player:React.FC<PlayerProps>=({mouseCoords,...props})=>{
     useFrame((_,delta)=>{
         console.log(delta);
         if(ref.current){
+            //gravity
             let currentPos=ref.current.position;
-            if(currentPos.x!==targetPos.x)
-            ref.current.position.x+=(targetPos.x-currentPos.x)*SPEED;
-            ref.current.position.z+=(targetPos.z-currentPos.z)*SPEED;
+            if(currentPos.y >= -4.5)
+                ref.current.position.y-=1*delta;
+            if(currentPos.x!==targetPos.x){
+                ref.current.position.x+=(targetPos.x-currentPos.x)*SPEED*delta;
+                ref.current.position.z+=(targetPos.z-currentPos.z)*SPEED*delta;
+            }
         }
     })
 
