@@ -1,18 +1,18 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {GroupProps, useFrame} from '@react-three/fiber';
-import {Group, SpotLight, Vector3} from 'three';
+import * as THREE from 'three';
 
 interface PlayerProps extends GroupProps{
-    mouseCoords:Vector3;
+    mouseCoords:THREE.Vector3;
 }
 
 const Player:React.FC<PlayerProps>=({mouseCoords,...props})=>{
 
-    const SPEED=0.12;
+    const SPEED=10;
 
-    const ref=useRef<Group>(null);
+    const ref=useRef<THREE.Mesh>(null!);
 
-    const [targetPos,setTargetPos]=useState<Vector3>(new Vector3(0,1,0))
+    const [targetPos,setTargetPos]=useState<THREE.Vector3>(new THREE.Vector3(0,1,0))
     const [moving, setMoving]=useState(false);
 
     useEffect(()=>{
@@ -21,8 +21,10 @@ const Player:React.FC<PlayerProps>=({mouseCoords,...props})=>{
 
     useEffect(()=>{
         if(ref.current){
-            let spot:SpotLight=ref.current.children[0]
-            spot.target=ref.current.children[1]
+            if(ref.current.children[0] instanceof THREE.SpotLight){
+                let spot= ref.current.children[0]
+                spot.target=ref.current.children[1]
+            }
         }
     },[ref])
 
@@ -32,8 +34,9 @@ const Player:React.FC<PlayerProps>=({mouseCoords,...props})=>{
         if(flDifference > dt){
             return flCurrent+dt;
         }else if(flDifference < -dt){
-            return flCurrent -dt ;
+            return flCurrent-dt ;
         }
+        return 0;
     }
 
     useFrame((_,delta)=>{
@@ -41,12 +44,12 @@ const Player:React.FC<PlayerProps>=({mouseCoords,...props})=>{
         if(ref.current){
             //gravity
             let currentPos=ref.current.position;
-            if(currentPos.y >= -4.5)
+            if(currentPos.y >= -3.9)
                 ref.current.position.y-=1*delta;
-            if(currentPos.x!==targetPos.x){
-                ref.current.position.x+=(targetPos.x-currentPos.x)*SPEED*delta;
-                ref.current.position.z+=(targetPos.z-currentPos.z)*SPEED*delta;
-            }
+            if(currentPos.x < targetPos.x)
+                ref.current.position.x=approach(targetPos.x,currentPos.x,SPEED*delta);
+            if(currentPos.z < targetPos.z)
+                ref.current.position.z=approach(targetPos.z,currentPos.z,SPEED*delta);
         }
     })
 
